@@ -14,6 +14,15 @@ To open the Problem-Method Graph visualization interface, double-click the `jour
 
 ![这是图片](/img/visual.png "Problem-Method Graph")
 
+## Comparison experiment and ablation experiment
+`python scripts/batch_run_comparison_experiments.py --root-dir data/output --skip-existing --sleep 2 --api-key-file qwen_key.txt --conditions baseline_oneshot_mineru ablation_text_only ablation_no_l3`
+
+
+`python scripts/batch_run_large_chunk_ablation.py --project-dir / --root-dir data/output --start 1 --end 100 --api-key-file qwen_key.txt --conditions ablation_large_chunk --condition-timeout 7200 --large-chunk-chars 12000 --large-chunk-images 1 --sleep 2 --skip-existing`
+
+## Calculation of quantitative results
+`python scripts/aggregate_batch_metrics.py --root-dir data/output --output-dir data/output/aggregate_metrics`
+
 
 
 
