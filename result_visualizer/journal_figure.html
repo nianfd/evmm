@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Evidence-Grounded Problem-Method Graph</title>
+    <link rel="stylesheet" href="../journal_visualizer/styles.css?v=20260623d" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Journal Figure View</p>
+          <h1>Evidence-Grounded Problem-Method Graph</h1>
+          <p class="subtitle">
+            Fine-grained research problems, method components, and auditable relations extracted from a multimodal CV paper.
+          </p>
+        </div>
+        <div class="controls" aria-label="Visualization controls">
+          <label class="file-control">
+            <span>Final JSON</span>
+            <input id="finalFile" type="file" accept=".json,application/json" />
+          </label>
+          <label class="file-control">
+            <span>L1 JSON</span>
+            <input id="l1File" type="file" accept=".json,application/json" />
+          </label>
+          <label class="file-control">
+            <span>Evidence Index</span>
+            <input id="evidenceFile" type="file" accept=".json,application/json" />
+          </label>
+          <label class="file-control">
+            <span>Images Folder</span>
+            <input id="imageFolder" type="file" webkitdirectory directory multiple accept="image/*" />
+          </label>
+          <button id="fitBtn" type="button">Fit View</button>
+          <button id="figureBtn" type="button" aria-pressed="false">Figure Mode</button>
+        </div>
+      </header>
+
+      <section class="status-strip" aria-label="Graph statistics">
+        <div class="metric"><span>Paper</span><strong id="paperName">-</strong></div>
+        <div class="metric"><span>Research Problems</span><strong id="rpCount">0</strong></div>
+        <div class="metric"><span>Method Components</span><strong id="methodCount">0</strong></div>
+        <div class="metric"><span>Evidence-Supported Links</span><strong id="supportCount">0</strong></div>
+        <div class="metric"><span>Inferred Links</span><strong id="inferredCount">0</strong></div>
+      </section>
+
+      <section class="workspace">
+        <section class="graph-panel" aria-label="Problem-method graph">
+          <div class="graph-toolbar">
+            <div class="segmented" role="group" aria-label="Edge filter">
+              <button class="active" data-filter="all" type="button">All</button>
+              <button data-filter="evidence_supported" type="button">Evidence</button>
+              <button data-filter="inferred" type="button">Inferred</button>
+              <button data-filter="linked" type="button">Linked Nodes</button>
+            </div>
+            <div class="legend" aria-label="Edge legend">
+              <span><i class="solid"></i> evidence-supported</span>
+              <span><i class="dash"></i> inferred</span>
+            </div>
+          </div>
+
+          <div id="graphViewport" class="graph-viewport">
+            <div id="graphCanvas" class="graph-canvas">
+              <svg id="edgeSvg" class="edge-layer" aria-hidden="true"></svg>
+              <div id="rpLayer" class="node-layer"></div>
+              <div id="methodLayer" class="node-layer"></div>
+              <div class="column-label rp-label">Research Problems</div>
+              <div class="column-label method-label">Method Components</div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="inspector" aria-label="Selection details">
+          <div class="inspector-head">
+            <p class="eyebrow">Details</p>
+            <h2 id="detailTitle">Load extraction files</h2>
+          </div>
+          <div id="detailBody" class="detail-body">
+            <p class="empty-state">
+              Load the final extraction JSON, L1 chunk results, evidence index, and MinerU image folder. Then click a node or relation to inspect evidence.
+            </p>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="../journal_visualizer/app.js?v=20260623d"></script>
+  </body>
+</html>
