@@ -1,7 +1,8 @@
 # Full code for the paper "Evidence-Grounded Multimodal Mining of Fine-Grained Research Problems and Methods from Computer Vision Papers"
 
 ## Dataset
-The dataset used in this paper is available at https://pan.baidu.com/s/1iW_PJn8NwLIb4GZK9kZLCg?pwd=i8nw  Just replace the "data" folder.
+The dataset used in this paper is available at https://pan.baidu.com/s/1iW_PJn8NwLIb4GZK9kZLCg?pwd=i8nw  Just replace the "data" folder.  
+MinerU-processed literature data is saved in the data/output directory, with each paper in a separate subfolder containing a Markdown file and an image folder.
 
 ## Run Code
 1.Save your Qwen-VL API key to the qwen_key.txt file.  
