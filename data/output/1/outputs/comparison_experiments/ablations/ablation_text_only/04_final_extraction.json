@@ -1,0 +1,2692 @@
+{
+  "final_research_problems": [
+    {
+      "id": "RP1",
+      "problem": "Supervised HSI denoising methods require large-scale labeled datasets that are impractical to create due to the diversity of scenes, hyperspectral cameras, and scan parameters.",
+      "problem_type": "data_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S003_C01:RP-1",
+        "S004_C01:RP-1"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP2",
+      "problem": "Existing HSI denoising methods fail to effectively handle noise degradation in snapshot hyperspectral imaging due to narrow-band spectral filtering, which results in limited photon counts per band and low signal-to-noise ratio.",
+      "problem_type": "task_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S003_C01:RP-2",
+        "S004_C01:RP-1"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP3",
+      "problem": "Current self-supervised or unsupervised approaches lack effective mechanisms to model both spectral unmixing and abundance map refinement simultaneously for HSI denoising.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S003_C01:RP-3"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "RP4",
+      "problem": "Traditional model-based HSI denoising methods rely on handcrafted priors that are not universally effective and require iterative optimization, leading to high computational cost and poor generalization.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S004_C01:RP-2"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP5",
+      "problem": "Deep learning-based HSI denoising methods using CNNs have limited receptive fields, restricting their ability to capture long-range dependencies necessary for effective denoising.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S004_C01:RP-3"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP6",
+      "problem": "Existing Transformer-based HSI denoising models struggle to balance strong noise reduction with preservation of fine details.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S004_C01:RP-4"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP7",
+      "problem": "Low-rank based HSI denoising methods depend on matrix factorization with hyperparameter tuning (e.g., rank), making them sensitive to noise reduction and detail recovery.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S004_C01:RP-5"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP8",
+      "problem": "Spectral unmixing decomposition is non-unique and produces base tensors (e.g., via PCA or sparse representation) that do not resemble real image features, limiting the use of established image distribution knowledge.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S004_C01:RP-6"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP9",
+      "problem": "Existing model-based hyperspectral image (HSI) denoising methods rely on handcrafted priors and iterative optimization, which limits their adaptability to complex and varying noise patterns.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S005_C01:RP-1"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "RP10",
+      "problem": "Deep learning-based HSI denoising approaches struggle with preserving fine-grained spatial details when generalizing across different data distributions between training and test sets.",
+      "problem_type": "evaluation_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S005_C01:RP-2"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "RP11",
+      "problem": "Current Transformer-based methods for HSI restoration lack mechanisms to ensure consistent generation of high-quality textures during the denoising process, leading to potential artifacts or loss of detail.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "implicit",
+      "evidence_refs": [
+        "S005_C01:RP-3"
+      ],
+      "confidence": 0.8,
+      "risk_note": ""
+    },
+    {
+      "id": "RP12",
+      "problem": "There is a scarcity of large-scale HSI datasets compared to RGB images, which hinders the effective training of diffusion models specifically tailored for HSI denoising tasks.",
+      "problem_type": "data_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S006_C01:RP-1"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP13",
+      "problem": "The substantially higher dimensionality of HSI data compared to RGB images poses challenges in adapting existing diffusion models due to increased computational and representational complexity.",
+      "problem_type": "data_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S006_C01:RP-2"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP14",
+      "problem": "Applying pre-trained 2D diffusion models independently to each spectral band of an HSI fails to preserve inter-band dependencies and spectral correlations, resulting in incoherent reconstructions.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S006_C01:RP-3"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP15",
+      "problem": "The iterative nature of diffusion processes becomes computationally expensive when applied to HSIs with tens or hundreds of spectral bands, limiting real-time applicability.",
+      "problem_type": "application_constraint",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S006_C01:RP-4"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP16",
+      "problem": "The spectral unmixing problem is inherently ill-posed, meaning multiple solutions exist without additional constraints, making it difficult to obtain a unique and physically meaningful decomposition.",
+      "problem_type": "task_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S007_C01:RP-01"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP17",
+      "problem": "There is a need to model the relationship between abundance maps and endmembers in a way that preserves physical interpretability and consistency under noisy conditions, especially since noise can distort material proportions.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S007_C01:RP-02"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "RP18",
+      "problem": "Noise in hyperspectral images is not isolated but absorbed into the abundance map during decomposition, potentially distorting true material proportions and affecting downstream analysis.",
+      "problem_type": "data_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S007_C01:RP-03"
+      ],
+      "confidence": 0.8,
+      "risk_note": ""
+    },
+    {
+      "id": "RP19",
+      "problem": "Abundance maps should remain consistent across different noise levels in hyperspectral images to ensure robust unmixing performance.",
+      "problem_type": "task_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S008_C01:RP-01"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "RP20",
+      "problem": "Spectral endmembers should be invariant to noise variations in hyperspectral images to reflect true material signatures.",
+      "problem_type": "task_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S008_C01:RP-02"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "RP21",
+      "problem": "Existing unmixing methods may fail to simultaneously preserve reconstruction fidelity and consistency of abundance and endmembers under noise variation.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S008_C01:RP-03"
+      ],
+      "confidence": 0.85,
+      "risk_note": ""
+    },
+    {
+      "id": "RP22",
+      "problem": "The computational complexity of the Transformer scales quadratically with image size, which poses challenges for high-dimensional hyperspectral image (HSI) data.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S009_C01:RP-01"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP23",
+      "problem": "Equal allocation of computational resources to spatial and spectral modes during unmixing may not be optimal, as spectral unmixing primarily relies on spectral correlations.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S009_C01:RP-02"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP24",
+      "problem": "How to map a noisy input abundance matrix A′ to an intermediate state in the Markov chain of a diffusion model?",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S010_C01:RP-1"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "RP25",
+      "problem": "How to control a pre-trained unconditional diffusion model to generate images with intended semantics when starting from a matched state?",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S010_C01:RP-2"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "RP26",
+      "problem": "Directly using noisy measurements as conditions for diffusion models leads to poor guidance for both low-frequency structure and high-frequency texture.",
+      "problem_type": "data_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S010_C01:RP-3"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "RP27",
+      "problem": "Existing denoising methods fail to maintain stable performance under heavy noise while preserving spatial-spectral consistency across bands.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S010_C01:RP-4"
+      ],
+      "confidence": 0.85,
+      "risk_note": ""
+    },
+    {
+      "id": "RP28",
+      "problem": "The residual noise estimated from noisy data may not have zero mean, leading to biased noise modeling if not corrected.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S010_C01:RP-5"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "RP29",
+      "problem": "The baseline unconditional generation process lacks alignment with the provided input abundance map A′, leading to inaccurate image sampling at state A₀.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S010_C02:RP-01"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "RP30",
+      "problem": "The reverse diffusion process needs to be conditioned on both the input abundance Ac and estimated endmembers E to ensure physically consistent reconstruction.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S010_C02:RP-02"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "RP31",
+      "problem": "There is a need for an adjustment mechanism in the reverse diffusion process to enforce consistency between the generated abundance map and the given constraint Ac.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S010_C02:RP-03"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "RP32",
+      "problem": "The generalization capability of diffusion-based unmixing models under diverse noise conditions—both simulated (e.g., Gaussian) and real-world (e.g., stripes, deadlines, atmospheric interference)—has not been sufficiently evaluated.",
+      "problem_type": "evaluation_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S012_C01:RP-1",
+        "S013_C01:RP-1"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "RP33",
+      "problem": "There is a lack of standardized self-supervised training protocols for diffusion-based unmixing models, particularly regarding the sequential training of the STU block and conditioning function.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S012_C01:RP-2",
+        "S013_C01:RP-2"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "RP34",
+      "problem": "Existing diffusion-based denoising models often do not integrate unmixing components tailored for hyperspectral data, limiting their effectiveness in structured recovery tasks such as spectral unmixing.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "implicit",
+      "evidence_refs": [
+        "S013_C01:RP-3"
+      ],
+      "confidence": 0.8,
+      "risk_note": ""
+    },
+    {
+      "id": "RP35",
+      "problem": "Existing denoising methods such as DDRM and DDS2M fail to preserve fine-grained details when handling real-world mixed noise in urban hyperspectral images due to over-smoothing.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S014_C01:RP-1",
+        "S014_C01:RP-3"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "RP36",
+      "problem": "Real-world urban hyperspectral images are corrupted by complex noise sources including stripes, deadlines, atmospheric interference, water absorption, and unidentified sources, which are not adequately modeled by existing synthetic noise benchmarks.",
+      "problem_type": "data_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S014_C01:RP-2"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "RP37",
+      "problem": "Current diffusion-based methods like DDRM and DDS2M do not effectively balance denoising performance and detail preservation under real-world noise conditions, indicating an incomplete evaluation protocol.",
+      "problem_type": "evaluation_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S014_C01:RP-3"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "RP38",
+      "problem": "The spectral unmixing problem is inherently ill-posed, making it difficult to determine an exact optimal solution.",
+      "problem_type": "task_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S015_C01:RP-1"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP39",
+      "problem": "There is a need to evaluate whether endmember information remains consistent across different noise levels in spectral unmixing methods.",
+      "problem_type": "evaluation_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S015_C01:RP-2"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP40",
+      "problem": "Existing unmixing techniques such as Singular Value Decomposition may not be sufficient for high-quality HSI reconstruction compared to more advanced models.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "implicit",
+      "evidence_refs": [
+        "S015_C01:RP-3"
+      ],
+      "confidence": 0.8,
+      "risk_note": ""
+    },
+    {
+      "id": "RP41",
+      "problem": "Diff-Unmix may generate spurious details (over-enhancement) due to its generative nature, posing a risk of artifacts in reconstructed images.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S016_C01:RP-1"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP42",
+      "problem": "DDS2M produces distorted results in scenarios where spurious detail generation occurs, indicating a failure mode under certain noise conditions.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S016_C01:RP-2"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "RP43",
+      "problem": "Existing HSI denoising methods lack the ability to simultaneously perform spectral unmixing and generative restoration, limiting their capability in handling complex noise patterns.",
+      "problem_type": "method_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S017_C01:RP-1"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "RP44",
+      "problem": "Current HSI denoising models struggle with generalizing to unseen real-world and mixed noise conditions.",
+      "problem_type": "evaluation_gap",
+      "granularity": "fine",
+      "explicitness": "explicit",
+      "evidence_refs": [
+        "S017_C01:RP-2"
+      ],
+      "confidence": 0.85,
+      "risk_note": ""
+    }
+  ],
+  "final_methods": [
+    {
+      "id": "M1",
+      "method": "Diff-Unmix uses a learnable block-based spectral unmixing strategy combined with a pure transformer-based backbone to decompose noisy HSI into endmembers and abundance maps.",
+      "method_type": "architecture",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy hyperspectral image"
+        ],
+        "outputs": [
+          "spectral endmembers",
+          "abundance maps"
+        ],
+        "procedure": [
+          "Diff-Unmix uses a learnable block-based spectral unmixing strategy combined with a pure transformer-based backbone to decompose noisy HSI into endmembers and abundance maps."
+        ],
+        "objective_or_metric": [
+          "Diff-Unmix uses a learnable block-based spectral unmixing strategy combined with a pure transformer-based backbone to decompose noisy HSI into endmembers and abundance maps."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S003_C01:M-1",
+        "S004_C01:M-1",
+        "S004_C01:M-2"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M2",
+      "method": "A self-supervised generative diffusion network is introduced to enhance abundance maps by reconstructing noise-free unmixing probability distributions.",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "abundance maps from spectral unmixing"
+        ],
+        "outputs": [
+          "denoised abundance maps"
+        ],
+        "procedure": [
+          "A self-supervised generative diffusion network is introduced to enhance abundance maps by reconstructing noise-free unmixing probability distributions."
+        ],
+        "objective_or_metric": [
+          "A self-supervised generative diffusion network is introduced to enhance abundance maps by reconstructing noise-free unmixing probability distributions."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S003_C01:M-2",
+        "S004_C01:M-3"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M3",
+      "method": "The final clean HSI is reconstructed by blending the diffusion-adjusted abundance map with the original spectral endmembers via unmixing reconstruction.",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "diffusion-adjusted abundance map",
+          "spectral endmembers"
+        ],
+        "outputs": [
+          "reconstructed noise-free HSI"
+        ],
+        "procedure": [
+          "The final clean HSI is reconstructed by blending the diffusion-adjusted abundance map with the original spectral endmembers via unmixing reconstruction."
+        ],
+        "objective_or_metric": [
+          "The final clean HSI is reconstructed by blending the diffusion-adjusted abundance map with the original spectral endmembers via unmixing reconstruction."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S003_C01:M-3"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M4",
+      "method": "The method is trained in a self-supervised manner without requiring paired clean-noisy data, leveraging the inherent structure of HSI for learning.",
+      "method_type": "training_objective",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy HSI"
+        ],
+        "outputs": [
+          "learned denoising model"
+        ],
+        "procedure": [
+          "The method is trained in a self-supervised manner without requiring paired clean-noisy data, leveraging the inherent structure of HSI for learning."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S003_C01:M-4"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M5",
+      "method": "A Spectral Unmixing Transformer (STU) network is designed to decompose the HSI into endmembers and abundances using multi-scale attention mechanisms.",
+      "method_type": "architecture",
+      "reproducibility_fields": {
+        "inputs": [
+          "HSI"
+        ],
+        "outputs": [
+          "endmembers",
+          "abundances"
+        ],
+        "procedure": [
+          "A Spectral Unmixing Transformer (STU) network is designed to decompose the HSI into endmembers and abundances using multi-scale attention mechanisms."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S004_C01:M-2"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M6",
+      "method": "A self-supervised conditioning function guides a generative diffusion network to denoise abundance maps while preserving high-frequency details.",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy abundance map"
+        ],
+        "outputs": [
+          "clean abundance map"
+        ],
+        "procedure": [
+          "A self-supervised conditioning function guides a generative diffusion network to denoise abundance maps while preserving high-frequency details."
+        ],
+        "objective_or_metric": [
+          "A self-supervised conditioning function guides a generative diffusion network to denoise abundance maps while preserving high-frequency details."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S004_C01:M-3"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M7",
+      "method": "The method uses a state matching and conditioning strategy to represent noisy abundances as samples from an intermediate state in the diffusion Markov chain, enabling clean abundance generation without ground truth.",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy abundance"
+        ],
+        "outputs": [
+          "clean abundance"
+        ],
+        "procedure": [
+          "The method uses a state matching and conditioning strategy to represent noisy abundances as samples from an intermediate state in the diffusion Markov chain, enabling clean abundance generation without ground truth."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S004_C01:M-4"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M8",
+      "method": "A transformer-based diffusion model with self-supervised conditioning is proposed to capture spectral-spatial properties and generate high-quality textures in HSI denoising.",
+      "method_type": "architecture",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy hyperspectral image"
+        ],
+        "outputs": [
+          "denoised hyperspectral image with preserved spatial and spectral details"
+        ],
+        "procedure": [
+          "A transformer-based diffusion model with self-supervised conditioning is proposed to capture spectral-spatial properties and generate high-quality textures in HSI denoising."
+        ],
+        "objective_or_metric": [
+          "A transformer-based diffusion model with self-supervised conditioning is proposed to capture spectral-spatial properties and generate high-quality textures in HSI denoising."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S005_C01:M-1"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M9",
+      "method": "A spectral unmixing transformer (STU) is used to enhance representation learning of spectral signatures by extracting abundance maps from input HSIs.",
+      "method_type": "architecture",
+      "reproducibility_fields": {
+        "inputs": [
+          "spectral bands of HSI"
+        ],
+        "outputs": [
+          "learned spectral unmixing representations"
+        ],
+        "procedure": [
+          "A spectral unmixing transformer (STU) is used to enhance representation learning of spectral signatures by extracting abundance maps from input HSIs."
+        ],
+        "objective_or_metric": [
+          "A spectral unmixing transformer (STU) is used to enhance representation learning of spectral signatures by extracting abundance maps from input HSIs."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S005_C01:M-2"
+      ],
+      "confidence": 0.85,
+      "risk_note": ""
+    },
+    {
+      "id": "M10",
+      "method": "A multi-path generative diffusion network is employed to jointly recover spatial and spectral information in the denoising process.",
+      "method_type": "architecture",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy HSI",
+          "conditioning signals from self-supervised module"
+        ],
+        "outputs": [
+          "reconstructed HSI with enhanced spatial and spectral fidelity"
+        ],
+        "procedure": [
+          "A multi-path generative diffusion network is employed to jointly recover spatial and spectral information in the denoising process."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S005_C01:M-3"
+      ],
+      "confidence": 0.8,
+      "risk_note": ""
+    },
+    {
+      "id": "M11",
+      "method": "The clean HSI X is decomposed into an abundance map A and an endmember matrix E via tensor product: X = A ×₃ E.",
+      "method_type": "representation",
+      "reproducibility_fields": {
+        "inputs": [
+          "clean HSI X",
+          "endmember matrix E"
+        ],
+        "outputs": [
+          "abundance map A"
+        ],
+        "procedure": [
+          "The clean HSI X is decomposed into an abundance map A and an endmember matrix E via tensor product: X = A ×₃ E."
+        ],
+        "objective_or_metric": [
+          "The clean HSI X is decomposed into an abundance map A and an endmember matrix E via tensor product: X = A ×₃ E."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S006_C01:M-1"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M12",
+      "method": "A Spectral Transformer Unmixing Network (STU) is used to extract the abundance map A_y from the noisy input HSI Y.",
+      "method_type": "architecture",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy HSI Y"
+        ],
+        "outputs": [
+          "abundance map A_y"
+        ],
+        "procedure": [
+          "A Spectral Transformer Unmixing Network (STU) is used to extract the abundance map A_y from the noisy input HSI Y."
+        ],
+        "objective_or_metric": [
+          "A Spectral Transformer Unmixing Network (STU) is used to extract the abundance map A_y from the noisy input HSI Y."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S006_C01:M-2"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M13",
+      "method": "The abundance map A_y derived from the noisy input is treated as a sample from a posterior distribution at an intermediate state A_t in the Markov chain of the diffusion process.",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy HSI Y",
+          "endmember matrix E"
+        ],
+        "outputs": [
+          "abundance map A_y",
+          "posterior sample at A_t"
+        ],
+        "procedure": [
+          "The abundance map A_y derived from the noisy input is treated as a sample from a posterior distribution at an intermediate state A_t in the Markov chain of the diffusion process."
+        ],
+        "objective_or_metric": [
+          "The abundance map A_y derived from the noisy input is treated as a sample from a posterior distribution at an intermediate state A_t in the Markov chain of the diffusion process."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S006_C01:M-3"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M14",
+      "method": "The diffusion sampling process starts directly from the noisy abundance map A_y using the conditional distribution p(A_T | A_y).",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "A_y"
+        ],
+        "outputs": [
+          "cleaned abundance map A"
+        ],
+        "procedure": [
+          "The diffusion sampling process starts directly from the noisy abundance map A_y using the conditional distribution p(A_T | A_y)."
+        ],
+        "objective_or_metric": [
+          "The diffusion sampling process starts directly from the noisy abundance map A_y using the conditional distribution p(A_T | A_y)."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S006_C01:M-4"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M15",
+      "method": "The overall framework consists of three modules: Spectral Transformer Unmixing (STU), Conditioning Function (CF), and Abundance Diffusion Adjustment (ADA), working together to refine spectral unmixing and enable effective denoising.",
+      "method_type": "architecture",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy HSI Y"
+        ],
+        "outputs": [
+          "denoised HSI X̂"
+        ],
+        "procedure": [
+          "The overall framework consists of three modules: Spectral Transformer Unmixing (STU), Conditioning Function (CF), and Abundance Diffusion Adjustment (ADA), working together to refine spectral unmixing and enable effective denoising."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S006_C01:M-5"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M16",
+      "method": "The spectral unmixing process is formulated as a tensor decomposition problem using the equation $\\mathcal{X} = \\mathcal{A} \\times_3 E$, where X is the input HSI, A is the abundance map, and E is the spectral endmember matrix.",
+      "method_type": "representation",
+      "reproducibility_fields": {
+        "inputs": [
+          "input HSI $\\mathcal{X}$"
+        ],
+        "outputs": [
+          "abundance map $\\mathcal{A}$",
+          "spectral endmembers $E$"
+        ],
+        "procedure": [
+          "The spectral unmixing process is formulated as a tensor decomposition problem using the equation $\\mathcal{X} = \\mathcal{A} \\times_3 E$, where X is the input HSI, A is the abundance map, and E is the spectral endmember matrix."
+        ],
+        "objective_or_metric": [
+          "The spectral unmixing process is formulated as a tensor decomposition problem using the equation $\\mathcal{X} = \\mathcal{A} \\times_3 E$, where X is the input HSI, A is the abundance map, and E is the spectral endmember matrix."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S007_C01:M-01"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M17",
+      "method": "An optimization objective includes a reconstruction term $\\tau(\\mathcal{A} \\times_3 E)$ to ensure fidelity of the reconstructed image from decomposed components.",
+      "method_type": "training_objective",
+      "reproducibility_fields": {
+        "inputs": [
+          "decomposed abundance $\\mathcal{A}$",
+          "endmembers $E$"
+        ],
+        "outputs": [
+          "reconstruction loss"
+        ],
+        "procedure": [
+          "An optimization objective includes a reconstruction term $\\tau(\\mathcal{A} \\times_3 E)$ to ensure fidelity of the reconstructed image from decomposed components."
+        ],
+        "objective_or_metric": [
+          "An optimization objective includes a reconstruction term $\\tau(\\mathcal{A} \\times_3 E)$ to ensure fidelity of the reconstructed image from decomposed components."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S007_C01:M-02"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M18",
+      "method": "Regularization terms $\\phi(\\mathcal{A})$ and $\\psi(E)$ are applied to enforce consistency in the abundance map and endmembers respectively, with hyperparameters $\\alpha$ and $\\beta$ controlling their influence.",
+      "method_type": "training_objective",
+      "reproducibility_fields": {
+        "inputs": [
+          "abundance map $\\mathcal{A}$",
+          "endmembers $E$",
+          "hyperparameters $\\alpha, \\beta$"
+        ],
+        "outputs": [
+          "regularization losses"
+        ],
+        "procedure": [
+          "Regularization terms $\\phi(\\mathcal{A})$ and $\\psi(E)$ are applied to enforce consistency in the abundance map and endmembers respectively, with hyperparameters $\\alpha$ and $\\beta$ controlling their influence."
+        ],
+        "objective_or_metric": [
+          "Regularization terms $\\phi(\\mathcal{A})$ and $\\psi(E)$ are applied to enforce consistency in the abundance map and endmembers respectively, with hyperparameters $\\alpha$ and $\\beta$ controlling their influence."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S007_C01:M-03"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M19",
+      "method": "The reconstruction loss computes the L1 norm difference between original noisy HSI and reconstructed image using estimated abundance and endmember matrices.",
+      "method_type": "training_objective",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy HSI $\\mathcal{I}_n$ and $\\mathcal{I}_m$",
+          "estimated abundance maps $\\mathcal{A}_n$ and $\\mathcal{A}_m$",
+          "estimated endmembers $E_n$ and $E_m$"
+        ],
+        "outputs": [
+          "reconstruction loss $L_{rec}$"
+        ],
+        "procedure": [
+          "The reconstruction loss computes the L1 norm difference between original noisy HSI and reconstructed image using estimated abundance and endmember matrices."
+        ],
+        "objective_or_metric": [
+          "The reconstruction loss computes the L1 norm difference between original noisy HSI and reconstructed image using estimated abundance and endmember matrices."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S008_C01:M-01"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M20",
+      "method": "The abundance fidelity loss measures the L1 norm difference between abundance maps derived from two noise-variant HSIs to enforce consistency.",
+      "method_type": "training_objective",
+      "reproducibility_fields": {
+        "inputs": [
+          "abundance maps $\\mathcal{A}_n$ and $\\mathcal{A}_m$"
+        ],
+        "outputs": [
+          "abundance fidelity loss $L_{af}$"
+        ],
+        "procedure": [
+          "The abundance fidelity loss measures the L1 norm difference between abundance maps derived from two noise-variant HSIs to enforce consistency."
+        ],
+        "objective_or_metric": [
+          "The abundance fidelity loss measures the L1 norm difference between abundance maps derived from two noise-variant HSIs to enforce consistency."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S008_C01:M-02"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M21",
+      "method": "The spectral endmembers consistency loss computes the L1 norm difference between endmembers extracted from two noise-variant HSIs.",
+      "method_type": "training_objective",
+      "reproducibility_fields": {
+        "inputs": [
+          "endmembers $E_n$ and $E_m$"
+        ],
+        "outputs": [
+          "spectral endmembers consistency loss $L_{se}$"
+        ],
+        "procedure": [
+          "The spectral endmembers consistency loss computes the L1 norm difference between endmembers extracted from two noise-variant HSIs."
+        ],
+        "objective_or_metric": [
+          "The spectral endmembers consistency loss computes the L1 norm difference between endmembers extracted from two noise-variant HSIs."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S008_C01:M-03"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M22",
+      "method": "The total decomposition loss combines reconstruction, abundance fidelity, and spectral endmember consistency losses with tunable hyperparameters.",
+      "method_type": "training_objective",
+      "reproducibility_fields": {
+        "inputs": [
+          "$L_{rec}$",
+          "$L_{af}$",
+          "$L_{se}$",
+          "hyperparameters $\\gamma_{af}$, $\\gamma_{se}$"
+        ],
+        "outputs": [
+          "total loss $L$"
+        ],
+        "procedure": [
+          "The total decomposition loss combines reconstruction, abundance fidelity, and spectral endmember consistency losses with tunable hyperparameters."
+        ],
+        "objective_or_metric": [
+          "The total decomposition loss combines reconstruction, abundance fidelity, and spectral endmember consistency losses with tunable hyperparameters."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S008_C01:M-04"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M23",
+      "method": "The Spectral Transformer Unmixing (STU) network has two branches: Abundance Decomposition (AD) and Spectral Endmember Decomposition (SED).",
+      "method_type": "architecture",
+      "reproducibility_fields": {
+        "inputs": [
+          "Hyperspectral image I of size H × W × B"
+        ],
+        "outputs": [
+          "Abundance map",
+          "Spectral endmember map"
+        ],
+        "procedure": [
+          "The Spectral Transformer Unmixing (STU) network has two branches: Abundance Decomposition (AD) and Spectral Endmember Decomposition (SED)."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S009_C01:M-01"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M24",
+      "method": "The AD branch uses a multi-stage spectral Transformer encoder and decoder with Global Spectral Attention (GSA) and mapping layers to preserve abundance and endmember characteristics.",
+      "method_type": "architecture",
+      "reproducibility_fields": {
+        "inputs": [
+          "Initial embedding features \\(\\mathcal{F}_{\\mathrm{init}}\\) from convolutional projection"
+        ],
+        "outputs": [
+          "Refined feature maps \\(\\mathcal{F}_i\\)"
+        ],
+        "procedure": [
+          "The AD branch uses a multi-stage spectral Transformer encoder and decoder with Global Spectral Attention (GSA) and mapping layers to preserve abundance and endmember characteristics."
+        ],
+        "objective_or_metric": [
+          "The AD branch uses a multi-stage spectral Transformer encoder and decoder with Global Spectral Attention (GSA) and mapping layers to preserve abundance and endmember characteristics."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S009_C01:M-02"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M25",
+      "method": "The AD block computes residual updates using normalized input features through a GSA module followed by a mapping layer, as defined by Equations (8) and (9).",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "Feature map \\(\\mathcal{F}_{i-1}\\)",
+          "Normalization function Norm"
+        ],
+        "outputs": [
+          "Updated feature map \\(\\mathcal{F}_i\\)"
+        ],
+        "procedure": [
+          "The AD block computes residual updates using normalized input features through a GSA module",
+          "a mapping layer, as defined by Equations (8) and (9)"
+        ],
+        "objective_or_metric": [
+          "The AD block computes residual updates using normalized input features through a GSA module followed by a mapping layer, as defined by Equations (8) and (9)."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S009_C01:M-03"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M26",
+      "method": "A novel Global Spectral Attention (GSA) mechanism is introduced to compute attention along the spectral mode direction, reducing computational complexity while maintaining unmixing performance.",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "Feature tensor \\(\\mathcal{X} \\in \\mathbb{R}^{H \\times W \\times C}\\) after Layer-Norm"
+        ],
+        "outputs": [
+          "Attention-weighted feature \\(\\hat{\\mathcal{X}}\\)"
+        ],
+        "procedure": [
+          "A novel Global Spectral Attention (GSA) mechanism is introduced to compute attention along the spectral mode direction, reducing computational complexity while maintaining unmixing performance."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S009_C01:M-04"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M27",
+      "method": "In the GSA module, the input feature tensor is rotated to facilitate spectral correlation via convolution, then projected into Q, K, and V matrices for attention computation.",
+      "method_type": "representation",
+      "reproducibility_fields": {
+        "inputs": [
+          "Feature tensor \\(\\mathcal{X}\\)",
+          "Projection weights \\(W^q, W^k, W^v\\)"
+        ],
+        "outputs": [
+          "Query \\(\\mathcal{Q}\\)",
+          "Key \\(\\mathcal{K}\\)",
+          "Value \\(\\mathcal{V}\\)"
+        ],
+        "procedure": [
+          "In the GSA module, the input feature tensor is rotated to facilitate spectral correlation via convolution,",
+          "projected into Q, K, and V matrices for attention computation"
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S009_C01:M-05"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M28",
+      "method": "The attention output is computed using softmax over scaled dot-product of Q and K, multiplied by V, and added to the original input, as defined in Equation (10).",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "Query \\(\\mathcal{Q}\\)",
+          "Key \\(\\mathcal{K}\\)",
+          "Value \\(\\mathcal{V}\\)",
+          "Scale factor d"
+        ],
+        "outputs": [
+          "Attention output \\(\\hat{\\mathcal{X}}\\)"
+        ],
+        "procedure": [
+          "The attention output is computed using softmax over scaled dot-product of Q and K, multiplied by V, and added to the original input, as defined in Equation (10)."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S009_C01:M-06"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M29",
+      "method": "Use a trainable conditioning function Φ to map noisy input A′ to a refined abundance matrix Ac = Φ(STU(V)) in a self-supervised manner.",
+      "method_type": "architecture",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy image V",
+          "STU-transformed input A′"
+        ],
+        "outputs": [
+          "refined abundance matrix Ac"
+        ],
+        "procedure": [
+          "Use a trainable conditioning function Φ to map noisy input A′ to a refined abundance matrix Ac = Φ(STU(V)) in a self-supervised manner."
+        ],
+        "objective_or_metric": [
+          "Use a trainable conditioning function Φ to map noisy input A′ to a refined abundance matrix Ac = Φ(STU(V)) in a self-supervised manner."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S010_C01:M-1"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M30",
+      "method": "Train the denoising network Φ using an unsupervised loss that enforces measurement consistency and transform consistency.",
+      "method_type": "training_objective",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy measurement Y",
+          "endmember matrix E",
+          "Gaussian noise N",
+          "random transforms As"
+        ],
+        "outputs": [
+          "optimized Φ"
+        ],
+        "procedure": [
+          "Train the denoising network Φ using an unsupervised loss that enforces measurement consistency and transform consistency."
+        ],
+        "objective_or_metric": [
+          "Train the denoising network Φ using an unsupervised loss that enforces measurement consistency and transform consistency."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S010_C01:M-2"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M31",
+      "method": "Adjust the mean of the estimated residual noise $\\hat{\\mathcal{N}}$ to zero before fitting it to a Gaussian distribution.",
+      "method_type": "data_processing",
+      "reproducibility_fields": {
+        "inputs": [
+          "estimated residual noise $\\hat{\\mathcal{N}}$"
+        ],
+        "outputs": [
+          "zero-mean adjusted noise $\\hat{\\mathcal{N}}$"
+        ],
+        "procedure": [
+          "Adjust the mean of the estimated residual noise $\\hat{\\mathcal{N}}$ to zero before fitting it to a Gaussian distribution."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S010_C01:M-3"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "M32",
+      "method": "Match the noise level of the input A′ to a time step t in the diffusion Markov chain by minimizing the distance between $\\sqrt{\\beta_t}$ and σ estimated via G-Fit.",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "noise level σ from G-Fit",
+          "predefined β schedule"
+        ],
+        "outputs": [
+          "matched time step t"
+        ],
+        "procedure": [
+          "Match the noise level of the input A′ to a time step t in the diffusion Markov chain by minimizing the distance between $\\sqrt{\\beta_t}$ and σ estimated via G-Fit."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S010_C01:M-4"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M33",
+      "method": "Perform reverse diffusion sampling from the matched state At = A′ using the trained denoising network εθ and conditional variable Ac.",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "matched state At",
+          "time step t",
+          "trained εθ",
+          "conditional Ac"
+        ],
+        "outputs": [
+          "denoised abundance at t−1"
+        ],
+        "procedure": [
+          "Perform reverse diffusion sampling from the matched state At = A′ using the trained denoising network εθ and conditional variable Ac."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S010_C01:M-5"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M34",
+      "method": "Use a U-Net-like 'hourglass' architecture for implementing the denoising function Φ.",
+      "method_type": "architecture",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy abundance A′"
+        ],
+        "outputs": [
+          "cleaned abundance $\\hat{\\mathcal{A}}$"
+        ],
+        "procedure": [
+          "Use a U-Net-like 'hourglass' architecture for implementing the denoising function Φ."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S010_C01:M-6"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "M35",
+      "method": "The reverse diffusion process uses ancestral sampling with a parameterized transition p(A_{t−1}|A_t) to iteratively denoise the abundance map.",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "\\mathcal{A}_t",
+          "t",
+          "\\epsilon_\\theta(\\cdot, t)",
+          "z_t"
+        ],
+        "outputs": [
+          "\\mathcal{A}_{t-1}"
+        ],
+        "procedure": [
+          "The reverse diffusion process uses ancestral sampling with a parameterized transition p(A_{t−1}|A_t) to iteratively denoise the abundance map."
+        ],
+        "objective_or_metric": [
+          "The reverse diffusion process uses ancestral sampling with a parameterized transition p(A_{t−1}|A_t) to iteratively denoise the abundance map."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S010_C02:M-01"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M36",
+      "method": "Reformulate the reverse SDE to include conditioning on Ac and E, enabling guided generation of abundance maps.",
+      "method_type": "architecture",
+      "reproducibility_fields": {
+        "inputs": [
+          "\\mathcal{A}(t)",
+          "t",
+          "\\mathcal{A}_c",
+          "E"
+        ],
+        "outputs": [
+          "d\\mathcal{A}"
+        ],
+        "procedure": [
+          "Reformulate the reverse SDE to include conditioning on Ac and E, enabling guided generation of abundance maps."
+        ],
+        "objective_or_metric": [
+          "Reformulate the reverse SDE to include conditioning on Ac and E, enabling guided generation of abundance maps."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S010_C02:M-02"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M37",
+      "method": "Approximate the gradient term ∇_{A(t)} log p_t(A(t)|Ac, E) by the score network εθ(A_t, t), which guides the sampling toward consistent abundances.",
+      "method_type": "representation",
+      "reproducibility_fields": {
+        "inputs": [
+          "\\mathcal{A}_t",
+          "t"
+        ],
+        "outputs": [
+          "\\nabla_{\\mathcal{A}(t)} \\log p_t(\\mathcal{A}(t)|\\mathcal{A}_c, E)"
+        ],
+        "procedure": [
+          "Approximate the gradient term ∇_{A(t)} log p_t(A(t)|Ac, E) by the score network εθ(A_t, t), which guides the sampling toward consistent abundances."
+        ],
+        "objective_or_metric": [
+          "Approximate the gradient term ∇_{A(t)} log p_t(A(t)|Ac, E) by the score network εθ(A_t, t), which guides the sampling toward consistent abundances."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S010_C02:M-03"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "M38",
+      "method": "Add an additional correction term −η∇_{A_t} ||Ac − Â₀ ×₃ E||_F to the reverse process to enforce abundance consistency.",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "\\mathcal{A}_t",
+          "\\mathcal{A}_c",
+          "\\hat{\\mathcal{A}}_0",
+          "E",
+          "\\eta"
+        ],
+        "outputs": [
+          "adjusted \\mathcal{A}_{t-1}"
+        ],
+        "procedure": [
+          "Add an additional correction term −η∇_{A_t} ||Ac − Â₀ ×₃ E||_F to the reverse process to enforce abundance consistency."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S010_C02:M-04"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M39",
+      "method": "Reconstruct the final hyperspectral image by mixing the adjusted abundance map Â₀ with spectral endmembers Ey using tensor multiplication.",
+      "method_type": "implementation_detail",
+      "reproducibility_fields": {
+        "inputs": [
+          "\\hat{\\mathcal{A}}_0",
+          "E_y"
+        ],
+        "outputs": [
+          "\\mathcal{X}_{\\mathrm{diff}}"
+        ],
+        "procedure": [
+          "Reconstruct the final hyperspectral image by mixing the adjusted abundance map Â₀ with spectral endmembers Ey using tensor multiplication."
+        ],
+        "objective_or_metric": [
+          "Reconstruct the final hyperspectral image by mixing the adjusted abundance map Â₀ with spectral endmembers Ey using tensor multiplication."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S010_C02:M-05"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M40",
+      "method": "A two-stage self-supervised training process: first train the STU block, then fix the pre-trained diffusion model and train the conditioning function.",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "pre-trained diffusion model",
+          "unconditional mode diffusion model",
+          "STU block"
+        ],
+        "outputs": [
+          "trained STU",
+          "conditioning function"
+        ],
+        "procedure": [
+          "A two-stage self-supervised training process: first train the STU block,",
+          "fix the pre-trained diffusion model and train the conditioning function"
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S012_C01:M-1",
+        "S013_C01:M-1"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M41",
+      "method": "Input images are cropped into patches of size 256×256 before processing.",
+      "method_type": "data_processing",
+      "reproducibility_fields": {
+        "inputs": [
+          "input image"
+        ],
+        "outputs": [
+          "image patches of size 256×256"
+        ],
+        "procedure": [
+          "Input images are cropped into patches of size 256×256 before processing."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S012_C01:M-2"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M42",
+      "method": "Data augmentation using shift, flip, and rotation transformations during training.",
+      "method_type": "data_processing",
+      "reproducibility_fields": {
+        "inputs": [
+          "image patches"
+        ],
+        "outputs": [
+          "augmented image patches"
+        ],
+        "procedure": [
+          "Data augmentation using shift, flip, and rotation transformations during training."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S012_C01:M-3"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "M43",
+      "method": "Experiments conducted using PyTorch on two NVIDIA RTX 4060Ti GPUs running Ubuntu 22.04.2.",
+      "method_type": "implementation_detail",
+      "reproducibility_fields": {
+        "inputs": [
+          "PyTorch framework",
+          "NVIDIA RTX 4060Ti GPUs",
+          "Ubuntu 22.04.2"
+        ],
+        "outputs": [
+          "training and inference environment"
+        ],
+        "procedure": [
+          "Experiments conducted using PyTorch on two NVIDIA RTX 4060Ti GPUs running Ubuntu 22.04.2."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S012_C01:M-4"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M44",
+      "method": "Self-supervised training of the conditioning function and STU block on the CAVE dataset.",
+      "method_type": "training_objective",
+      "reproducibility_fields": {
+        "inputs": [
+          "CAVE dataset",
+          "pre-trained diffusion model"
+        ],
+        "outputs": [
+          "trained conditioning function",
+          "trained STU unmixing block"
+        ],
+        "procedure": [
+          "Self-supervised training of the conditioning function and STU block on the CAVE dataset."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S012_C01:M-5",
+        "S013_C01:M-1"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M45",
+      "method": "Baseline optimization-based methods use hyperparameters from original papers with slight rank fine-tuning to improve PSNR.",
+      "method_type": "implementation_detail",
+      "reproducibility_fields": {
+        "inputs": [
+          "Original hyperparameter settings",
+          "Rank parameter"
+        ],
+        "outputs": [
+          "Optimized model parameters"
+        ],
+        "procedure": [
+          "Baseline optimization-based methods use hyperparameters from original papers with slight rank fine-tuning to improve PSNR."
+        ],
+        "objective_or_metric": [
+          "Baseline optimization-based methods use hyperparameters from original papers with slight rank fine-tuning to improve PSNR."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S013_C01:M-2"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "M46",
+      "method": "Adaptation of DDRM model by setting noise levels σ = 0.2, 0.3 during denoising.",
+      "method_type": "data_processing",
+      "reproducibility_fields": {
+        "inputs": [
+          "DDRM model",
+          "Noise level σ"
+        ],
+        "outputs": [
+          "Adapted DDRM model for different noise levels"
+        ],
+        "procedure": [
+          "Adaptation of DDRM model by setting noise levels σ = 0.2, 0.3 during denoising."
+        ],
+        "objective_or_metric": [
+          "Adaptation of DDRM model by setting noise levels σ = 0.2, 0.3 during denoising."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S013_C01:M-3"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M47",
+      "method": "Quantitative evaluation using PSNR, SSIM, FSIM, SAM, and processing time across two noise cases: N(0, 0.2) and N(0, 0.3).",
+      "method_type": "evaluation_protocol",
+      "reproducibility_fields": {
+        "inputs": [
+          "Denoised outputs",
+          "Ground truth images",
+          "Noise levels"
+        ],
+        "outputs": [
+          "PSNR, SSIM, FSIM, SAM values",
+          "Processing time"
+        ],
+        "procedure": [
+          "Quantitative evaluation using PSNR, SSIM, FSIM, SAM, and processing time across two noise cases: N(0, 0.2) and N(0, 0.3)."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S013_C01:M-4"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M48",
+      "method": "Visual comparison of denoising results via side-by-side reconstructions on Toy, KAIST, and CAVE datasets.",
+      "method_type": "evaluation_protocol",
+      "reproducibility_fields": {
+        "inputs": [
+          "Noisy input",
+          "Denoised outputs from various methods"
+        ],
+        "outputs": [
+          "Visual comparison figures"
+        ],
+        "procedure": [
+          "Visual comparison of denoising results via side-by-side reconstructions on Toy, KAIST, and CAVE datasets."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S013_C01:M-5"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "M49",
+      "method": "Diff-Unmix leverages information from diverse spectral bands to effectively remove mixed noise while preserving fine-grained details in urban hyperspectral images.",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy urban hyperspectral image",
+          "diverse spectral bands"
+        ],
+        "outputs": [
+          "denoised hyperspectral image with preserved details"
+        ],
+        "procedure": [
+          "Diff-Unmix leverages information from diverse spectral bands to effectively remove mixed noise while preserving fine-grained details in urban hyperspectral images."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S014_C01:M-1"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M50",
+      "method": "Diff-Unmix achieves superior denoising performance compared to DDRM and DDS2M on real-world urban datasets, as demonstrated by visual comparison in Figure 10.",
+      "method_type": "evaluation_protocol",
+      "reproducibility_fields": {
+        "inputs": [
+          "real urban dataset with mixed noise"
+        ],
+        "outputs": [
+          "visual results showing denoising quality"
+        ],
+        "procedure": [
+          "Diff-Unmix achieves superior denoising performance compared to DDRM and DDS2M on real-world urban datasets, as demonstrated by visual comparison in Figure 10."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S014_C01:M-2"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "M51",
+      "method": "Diff-Unmix operates within a diffusion-based framework and uses self-supervised learning.",
+      "method_type": "architecture",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy input"
+        ],
+        "outputs": [
+          "cleaned output"
+        ],
+        "procedure": [
+          "Diff-Unmix operates within a diffusion-based framework and uses self-supervised learning."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S014_C01:M-3"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M52",
+      "method": "The Transformer Unmixing Network (STU) is evaluated through visual analysis of its decomposition process.",
+      "method_type": "evaluation_protocol",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy input",
+          "HSI data"
+        ],
+        "outputs": [
+          "decomposed endmembers",
+          "visualized decomposition results"
+        ],
+        "procedure": [
+          "The Transformer Unmixing Network (STU) is evaluated through visual analysis of its decomposition process."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S015_C01:M-1"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M53",
+      "method": "Markov Chain State Matching aligns noisy input with an intermediate state in the diffusion process to accelerate inference.",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy input",
+          "diffusion Markov chain states"
+        ],
+        "outputs": [
+          "aligned intermediate state",
+          "accelerated HSI generation"
+        ],
+        "procedure": [
+          "Markov Chain State Matching aligns noisy input with an intermediate state in the diffusion process to accelerate inference."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S015_C01:M-2"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M54",
+      "method": "The conditioning function Φ guides the Diff-Unmix process to generate higher quality details in reconstructed hyperspectral images.",
+      "method_type": "architecture",
+      "reproducibility_fields": {
+        "inputs": [
+          "Diff-Unmix model",
+          "conditioning signal Φ"
+        ],
+        "outputs": [
+          "high-quality HSI details"
+        ],
+        "procedure": [
+          "The conditioning function Φ guides the Diff-Unmix process to generate higher quality details in reconstructed hyperspectral images."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S015_C01:M-3"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M55",
+      "method": "The ablation study compares Diff-Unmix with and without the conditioning function Φ using visual comparison.",
+      "method_type": "evaluation_protocol",
+      "reproducibility_fields": {
+        "inputs": [
+          "Diff-Unmix model with Φ",
+          "Diff-Unmix model without Φ"
+        ],
+        "outputs": [
+          "visual comparison results"
+        ],
+        "procedure": [
+          "The ablation study compares Diff-Unmix with and without the conditioning function Φ using visual comparison."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S015_C01:M-4"
+      ],
+      "confidence": 1.0,
+      "risk_note": ""
+    },
+    {
+      "id": "M56",
+      "method": "Diff-Unmix decomposes hyperspectral images into abundance maps and spectral endmembers using a spectral unmixing framework.",
+      "method_type": "architecture",
+      "reproducibility_fields": {
+        "inputs": [
+          "hyperspectral image"
+        ],
+        "outputs": [
+          "abundance map",
+          "spectral endmembers"
+        ],
+        "procedure": [
+          "Diff-Unmix decomposes hyperspectral images into abundance maps and spectral endmembers using a spectral unmixing framework."
+        ],
+        "objective_or_metric": [
+          "Diff-Unmix decomposes hyperspectral images into abundance maps and spectral endmembers using a spectral unmixing framework."
+        ]
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S017_C01:M-1"
+      ],
+      "confidence": 0.95,
+      "risk_note": ""
+    },
+    {
+      "id": "M57",
+      "method": "Diff-Unmix uses generative denoising diffusion models to restore degraded hyperspectral data by learning the reverse diffusion process.",
+      "method_type": "algorithm_step",
+      "reproducibility_fields": {
+        "inputs": [
+          "degraded hyperspectral image",
+          "abundance map",
+          "spectral endmembers"
+        ],
+        "outputs": [
+          "restored hyperspectral image"
+        ],
+        "procedure": [
+          "Diff-Unmix uses generative denoising diffusion models to restore degraded hyperspectral data by learning the reverse diffusion process."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S017_C01:M-2"
+      ],
+      "confidence": 0.9,
+      "risk_note": ""
+    },
+    {
+      "id": "M58",
+      "method": "The model enables subtle-detail completion and inference detail restoration during the denoising process.",
+      "method_type": "implementation_detail",
+      "reproducibility_fields": {
+        "inputs": [
+          "noisy hyperspectral image"
+        ],
+        "outputs": [
+          "denoised image with restored fine details"
+        ],
+        "procedure": [
+          "The model enables subtle-detail completion and inference detail restoration during the denoising process."
+        ],
+        "objective_or_metric": []
+      },
+      "granularity": "fine",
+      "evidence_refs": [
+        "S017_C01:M-3"
+      ],
+      "confidence": 0.85,
+      "risk_note": ""
+    }
+  ],
+  "problem_method_links": [
+    {
+      "problem_id": "RP1",
+      "method_id": "M4",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The self-supervised training objective directly addresses the problem of needing large-scale labeled datasets by eliminating the requirement for paired clean-noisy data."
+    },
+    {
+      "problem_id": "RP2",
+      "method_id": "M1",
+      "relation": "partially_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The spectral unmixing approach leverages physical modeling of HSI, which may better handle noise induced by narrow-band filtering compared to purely data-driven methods, though it does not explicitly target the SNR issue in acquisition."
+    },
+    {
+      "problem_id": "RP3",
+      "method_id": "M1",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The integration of spectral unmixing with a generative diffusion network enables simultaneous modeling of unmixing and abundance refinement, directly addressing the gap in existing self-supervised methods."
+    },
+    {
+      "problem_id": "RP4",
+      "method_id": "M1",
+      "relation": "partially_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "By replacing handcrafted priors with a learned unmixing and diffusion framework, the method reduces reliance on manual assumptions, thus partially addressing the limitations of traditional model-based approaches."
+    },
+    {
+      "problem_id": "RP5",
+      "method_id": "M1",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The use of a transformer-based backbone with multi-scale attention allows for capturing long-range dependencies, overcoming the limited receptive field issue of CNNs."
+    },
+    {
+      "problem_id": "RP6",
+      "method_id": "M2",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The diffusion-based enhancement of abundance maps preserves high-frequency details while reducing noise, directly tackling the trade-off between denoising strength and detail retention."
+    },
+    {
+      "problem_id": "RP7",
+      "method_id": "M4",
+      "relation": "partially_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The self-supervised approach avoids hyperparameter tuning related to rank selection in low-rank methods by learning the denoising process end-to-end, thus reducing sensitivity to such parameters."
+    },
+    {
+      "problem_id": "RP8",
+      "method_id": "M1",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The proposed STU network generates endmembers and abundances that are more aligned with real image structures through learned representations, unlike PCA or sparse representation which produce non-realistic base tensors."
+    },
+    {
+      "problem_id": "RP9",
+      "method_id": "M8",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The proposed transformer-based diffusion model with self-supervised conditioning is explicitly designed to overcome the limitations of handcrafted priors and iterative optimization in traditional model-based methods."
+    },
+    {
+      "problem_id": "RP10",
+      "method_id": "M8",
+      "relation": "partially_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The method aims to preserve fine-grained details through texture generation via diffusion; however, its effectiveness under distributional shifts is not fully evaluated in the provided evidence."
+    },
+    {
+      "problem_id": "RP11",
+      "method_id": "M8",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The use of a diffusion model with self-supervised conditioning is intended to improve texture generation consistency, addressing the gap in current Transformers' ability to produce coherent textures."
+    },
+    {
+      "problem_id": "RP12",
+      "method_id": "M12",
+      "relation": "evaluates",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The STU module is designed to work with limited data by leveraging learned representations, implicitly addressing the challenge of scarce HSI datasets through transferable spectral modeling."
+    },
+    {
+      "problem_id": "RP13",
+      "method_id": "M11",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "By decomposing the HSI into abundance and endmember components, the method reduces the dimensionality burden and enables structured processing of high-dimensional data."
+    },
+    {
+      "problem_id": "RP14",
+      "method_id": "M11",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The tensor decomposition approach ensures joint modeling of spectral bands through shared endmembers, preserving inter-band dependencies unlike per-band processing."
+    },
+    {
+      "problem_id": "RP15",
+      "method_id": "M14",
+      "relation": "partially_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "Starting diffusion from the noisy abundance map may reduce iteration count, but no explicit mechanism for computational efficiency is described beyond this initialization strategy."
+    },
+    {
+      "problem_id": "RP16",
+      "method_id": "M16",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "Formulating unmixing as a tensor decomposition with regularization terms provides a structured solution to the ill-posed nature of the problem by imposing constraints."
+    },
+    {
+      "problem_id": "RP17",
+      "method_id": "M18",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The regularization terms $\\phi(\\mathcal{A})$ and $\\psi(E)$ are explicitly introduced to enforce consistency in abundance and endmembers, ensuring physical interpretability under noise."
+    },
+    {
+      "problem_id": "RP18",
+      "method_id": "M13",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "By treating the noisy abundance map as a sample from a posterior distribution in the diffusion process, the method accounts for noise contamination and separates it from the true signal during refinement."
+    },
+    {
+      "problem_id": "RP19",
+      "method_id": "M20",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The abundance fidelity loss (M2) is explicitly designed to enforce consistency between abundance maps derived from different noise levels, directly addressing the need for abundance consistency under varying noise conditions (RP1)."
+    },
+    {
+      "problem_id": "RP20",
+      "method_id": "M21",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The spectral endmembers consistency loss (M3) enforces stability of endmembers across noise variants by minimizing their L1 difference, directly solving the problem of endmember invariance to noise (RP2)."
+    },
+    {
+      "problem_id": "RP21",
+      "method_id": "M22",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The total decomposition loss (M4) integrates reconstruction, abundance fidelity, and endmember consistency losses, enabling simultaneous optimization of all three objectives, thus directly addressing the gap in handling multiple consistency requirements together (RP3)."
+    },
+    {
+      "problem_id": "RP22",
+      "method_id": "M26",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The Global Spectral Attention (GSA) mechanism (M8) reduces attention computation complexity by focusing only on the spectral dimension, thereby mitigating the quadratic scaling issue of standard Transformers in high-dimensional HSI data (RP4)."
+    },
+    {
+      "problem_id": "RP23",
+      "method_id": "M24",
+      "relation": "partially_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The AD branch (M6) emphasizes spectral processing through dedicated GSA modules, suggesting a prioritization of spectral modes over spatial ones, which partially addresses the concern about suboptimal resource allocation (RP5). However, the SED branch's design is not detailed enough to confirm full resolution of this issue."
+    },
+    {
+      "problem_id": "RP24",
+      "method_id": "M32",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The method M4 explicitly defines how to match the noise level of the input A′ to a time step t in the diffusion chain, directly solving the problem of mapping noisy inputs to intermediate states."
+    },
+    {
+      "problem_id": "RP25",
+      "method_id": "M36",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "Method M8 reformulates the reverse SDE with conditioning on Ac and E, enabling semantic control over the generative process when starting from a matched state."
+    },
+    {
+      "problem_id": "RP26",
+      "method_id": "M29",
+      "relation": "partially_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "By refining the noisy input through Φ, the method improves the quality of the condition used for generation, thereby mitigating poor guidance from raw noisy data."
+    },
+    {
+      "problem_id": "RP27",
+      "method_id": "M29",
+      "relation": "partially_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The use of a trainable Φ allows for adaptive denoising that can better preserve spatial-spectral consistency compared to fixed or heuristic-based methods."
+    },
+    {
+      "problem_id": "RP28",
+      "method_id": "M31",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "Method M3 explicitly adjusts the mean of the estimated noise to zero, directly correcting the bias issue identified in RP5."
+    },
+    {
+      "problem_id": "RP29",
+      "method_id": "M36",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "By conditioning the reverse SDE on Ac, the method ensures that the generated abundance map remains aligned with the input A′, addressing the misalignment issue."
+    },
+    {
+      "problem_id": "RP30",
+      "method_id": "M36",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The reformulated reverse SDE includes both Ac and E as conditioning variables, ensuring physical consistency during reconstruction."
+    },
+    {
+      "problem_id": "RP31",
+      "method_id": "M38",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The correction term in M10 actively enforces consistency between the generated abundance and the constraint Ac, directly addressing the need for adjustment."
+    },
+    {
+      "problem_id": "RP32",
+      "method_id": "M47",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The evaluation protocol M8 explicitly includes testing under both N(0, 0.2) and N(0, 0.3) noise conditions, directly addressing the need to assess performance under varied synthetic noise, which aligns with RP1."
+    },
+    {
+      "problem_id": "RP32",
+      "method_id": "M48",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "Visual comparisons on multiple datasets including real-world KAIST and CAVE provide qualitative evidence of generalization under diverse noise types, directly supporting the evaluation of generalization capability stated in RP1."
+    },
+    {
+      "problem_id": "RP33",
+      "method_id": "M40",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The two-stage self-supervised training process described in M1 constitutes a novel and specific protocol for training the STU and conditioning function, directly addressing the methodological gap identified in RP2."
+    },
+    {
+      "problem_id": "RP33",
+      "method_id": "M44",
+      "relation": "partially_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "While M5 describes self-supervised training on CAVE, it does not fully specify whether this protocol is standardized or transferable across datasets, thus only partially addressing the broader issue of standardization mentioned in RP2."
+    },
+    {
+      "problem_id": "RP34",
+      "method_id": "M40",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "By integrating a dedicated unmixing component (STU) with a diffusion model through a two-stage training strategy, M1 directly addresses the structural limitation highlighted in RP3 where existing diffusion models lack unmixing integration."
+    },
+    {
+      "problem_id": "RP34",
+      "method_id": "M44",
+      "relation": "evaluates",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "Training the conditioning function and STU jointly on CAVE allows for evaluation of how well the integrated unmixing-diffusion architecture performs compared to standalone diffusion models like DDRM and DDS2M, thereby evaluating the solution to RP3."
+    },
+    {
+      "problem_id": "RP35",
+      "method_id": "M49",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The method M1 explicitly describes how Diff-Unmix uses multi-band information to preserve details while removing noise, directly addressing the limitation of DDRM and DDS2M in RP1."
+    },
+    {
+      "problem_id": "RP36",
+      "method_id": "M49",
+      "relation": "partially_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "While M1 focuses on detail preservation via multi-band use, it does not explicitly address modeling of specific noise types like stripes or atmospheric interference; however, its application to real-world data implies some level of adaptation to complex noise."
+    },
+    {
+      "problem_id": "RP37",
+      "method_id": "M50",
+      "relation": "evaluates",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "M2 provides a visual evaluation protocol that demonstrates the performance of Diff-Unmix under real-world noise, thereby evaluating the gap in balancing denoising and detail preservation highlighted in RP3."
+    },
+    {
+      "problem_id": "RP38",
+      "method_id": "M56",
+      "relation": "partially_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "M8 describes the decomposition into abundance and endmembers, which is a step toward solving the ill-posed unmixing problem, but does not claim to resolve the inherent ill-posedness itself."
+    },
+    {
+      "problem_id": "RP39",
+      "method_id": "M52",
+      "relation": "evaluates",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "M4 involves visual analysis of decomposition, which can be used to assess consistency of endmembers across noise levels, thus supporting the evaluation need stated in RP5."
+    },
+    {
+      "problem_id": "RP40",
+      "method_id": "M56",
+      "relation": "motivates",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "The use of advanced unmixing (M8) suggests that simpler methods like SVD are insufficient, motivating the need for more sophisticated approaches as implied in RP6."
+    },
+    {
+      "problem_id": "RP41",
+      "method_id": "M49",
+      "relation": "partially_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "M1 emphasizes detail preservation, but the risk of over-enhancement (RP7) is acknowledged as a side effect of the generative mechanism, meaning the method attempts to preserve details but may introduce artifacts."
+    },
+    {
+      "problem_id": "RP42",
+      "method_id": "M49",
+      "relation": "partially_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "M1 highlights Diff-Unmix's advantage over DDS2M in detail preservation, indirectly addressing the distortion issue in DDS2M by contrast, though not directly solving it."
+    },
+    {
+      "problem_id": "RP43",
+      "method_id": "M56",
+      "relation": "directly_addresses",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "M8 describes the integration of spectral unmixing and generative restoration, directly addressing the gap identified in RP9 where prior methods failed to combine these two paradigms."
+    },
+    {
+      "problem_id": "RP44",
+      "method_id": "M50",
+      "relation": "evaluates",
+      "link_type": "evidence_supported",
+      "confidence": 1.0,
+      "rationale": "M2 evaluates Diff-Unmix on real-world datasets, demonstrating its generalization to unseen noise, thus providing evidence against the generalization gap described in RP10."
+    },
+    {
+      "problem_id": "RP1",
+      "method_id": "M51",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "Diff-Unmix uses self-supervised learning, which can reduce reliance on labeled data by leveraging the structure of the data itself, thus partially addressing the need for large-scale labeled datasets in supervised HSI denoising."
+    },
+    {
+      "problem_id": "RP2",
+      "method_id": "M51",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.65,
+      "rationale": "The generative nature of Diff-Unmix may help model low-photon-count scenarios through learned data distributions, potentially improving performance under snapshot imaging conditions with limited signal-to-noise ratio."
+    },
+    {
+      "problem_id": "RP3",
+      "method_id": "M5",
+      "relation": "directly_addresses",
+      "link_type": "inferred",
+      "confidence": 0.8,
+      "rationale": "The Spectral Unmixing Transformer (STU) explicitly decomposes HSIs into endmembers and abundances using multi-scale attention, directly enabling simultaneous modeling of spectral unmixing and abundance refinement."
+    },
+    {
+      "problem_id": "RP4",
+      "method_id": "M51",
+      "relation": "directly_addresses",
+      "link_type": "inferred",
+      "confidence": 0.85,
+      "rationale": "Diff-Unmix is a diffusion-based method that avoids handcrafted priors and iterative optimization, instead relying on learned generative processes to achieve denoising, thereby directly addressing limitations of traditional model-based approaches."
+    },
+    {
+      "problem_id": "RP5",
+      "method_id": "M5",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.75,
+      "rationale": "The STU network uses multi-scale attention mechanisms, which can capture longer-range dependencies compared to CNNs, thus partially mitigating the limited receptive field issue in CNN-based methods."
+    },
+    {
+      "problem_id": "RP6",
+      "method_id": "M51",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "Diff-Unmix employs a generative diffusion process that allows fine-grained control over noise reduction and detail preservation, offering potential improvements over standard Transformer-based models in balancing these aspects."
+    },
+    {
+      "problem_id": "RP7",
+      "method_id": "M51",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "By avoiding explicit matrix factorization and hyperparameter tuning like rank selection, Diff-Unmix reduces sensitivity to such parameters, thus partially addressing the issues associated with low-rank methods."
+    },
+    {
+      "problem_id": "RP8",
+      "method_id": "M5",
+      "relation": "directly_addresses",
+      "link_type": "inferred",
+      "confidence": 0.8,
+      "rationale": "The STU network learns representations directly from data using attention mechanisms, producing more meaningful and interpretable base tensors than PCA or sparse representation, thus addressing the non-uniqueness and lack of realism in decomposition."
+    },
+    {
+      "problem_id": "RP9",
+      "method_id": "M51",
+      "relation": "directly_addresses",
+      "link_type": "inferred",
+      "confidence": 0.85,
+      "rationale": "Diff-Unmix uses a data-driven diffusion framework without handcrafted priors or iterative optimization, making it inherently more adaptable to complex and varying noise patterns than traditional model-based methods."
+    },
+    {
+      "problem_id": "RP10",
+      "method_id": "M51",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "The self-supervised nature of Diff-Unmix enables training on diverse data distributions without requiring paired clean-noisy samples, helping improve generalization across different test sets and preserving spatial details."
+    },
+    {
+      "problem_id": "RP11",
+      "method_id": "M51",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "The generative diffusion process in Diff-Unmix allows for controlled texture generation during denoising, potentially reducing artifacts and improving consistency in high-quality texture synthesis."
+    },
+    {
+      "problem_id": "RP12",
+      "method_id": "M51",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "Although Diff-Unmix still requires some training data, its self-supervised design reduces dependency on large-scale labeled datasets, thus partially alleviating the scarcity issue in HSI data."
+    },
+    {
+      "problem_id": "RP13",
+      "method_id": "M51",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "Diff-Unmix operates on full hyperspectral cubes rather than individual bands, implicitly handling higher dimensionality through joint modeling, though computational complexity remains a challenge."
+    },
+    {
+      "problem_id": "RP14",
+      "method_id": "M51",
+      "relation": "directly_addresses",
+      "link_type": "inferred",
+      "confidence": 0.8,
+      "rationale": "Diff-Unmix processes the entire HSI as a single entity within a diffusion framework, preserving inter-band dependencies and spectral correlations, unlike band-wise processing which leads to incoherent reconstructions."
+    },
+    {
+      "problem_id": "RP15",
+      "method_id": "M51",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "While Diff-Unmix involves iterative sampling, its use of state matching and conditioning strategies may accelerate inference, partially mitigating the computational cost of diffusion processes in high-dimensional data."
+    },
+    {
+      "problem_id": "RP16",
+      "method_id": "M5",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "The STU network introduces structured regularization via attention mechanisms, which can help constrain the solution space and reduce ill-posedness in spectral unmixing by enforcing consistency in learned representations."
+    },
+    {
+      "problem_id": "RP17",
+      "method_id": "M5",
+      "relation": "directly_addresses",
+      "link_type": "inferred",
+      "confidence": 0.8,
+      "rationale": "The STU network jointly estimates endmembers and abundances while maintaining physical interpretability through learned spectral signatures, ensuring consistency between them even under noisy conditions."
+    },
+    {
+      "problem_id": "RP18",
+      "method_id": "M5",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "By learning robust representations of abundance maps through attention mechanisms, the STU network may mitigate the absorption of noise into abundance estimates, leading to more accurate material proportions."
+    },
+    {
+      "problem_id": "RP19",
+      "method_id": "M5",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "The attention-based decomposition in STU may produce more stable abundance maps across varying noise levels due to its data-driven and invariant feature extraction capabilities."
+    },
+    {
+      "problem_id": "RP20",
+      "method_id": "M5",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "The STU network learns endmember signatures directly from data, promoting invariance to noise variations by focusing on consistent spectral patterns across different conditions."
+    },
+    {
+      "problem_id": "RP21",
+      "method_id": "M5",
+      "relation": "directly_addresses",
+      "link_type": "inferred",
+      "confidence": 0.8,
+      "rationale": "The STU network simultaneously refines both abundance and endmember components using shared attention mechanisms, ensuring consistency and fidelity in reconstruction under noise variation."
+    },
+    {
+      "problem_id": "RP22",
+      "method_id": "M51",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "Diff-Unmix uses a diffusion framework that may employ efficient variants of Transformers or alternative architectures to reduce quadratic scaling, thus partially addressing computational challenges in high-dimensional data."
+    },
+    {
+      "problem_id": "RP23",
+      "method_id": "M5",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "The STU network's dual branches for abundance and endmember decomposition allow for adaptive allocation of resources based on spectral correlation, potentially optimizing computational efficiency."
+    },
+    {
+      "problem_id": "RP24",
+      "method_id": "M7",
+      "relation": "directly_addresses",
+      "link_type": "inferred",
+      "confidence": 0.9,
+      "rationale": "The state matching and conditioning strategy explicitly maps noisy input abundances to an intermediate state in the diffusion Markov chain, directly solving the problem of how to represent noisy inputs in the diffusion process."
+    },
+    {
+      "problem_id": "RP25",
+      "method_id": "M6",
+      "relation": "directly_addresses",
+      "link_type": "inferred",
+      "confidence": 0.9,
+      "rationale": "The self-supervised conditioning function guides the diffusion model to generate images with intended semantics by aligning the generated output with the input abundance map, directly addressing the control problem in unconditional diffusion models."
+    },
+    {
+      "problem_id": "RP26",
+      "method_id": "M6",
+      "relation": "directly_addresses",
+      "link_type": "inferred",
+      "confidence": 0.85,
+      "rationale": "The conditioning function provides guidance based on the input abundance map, improving both low-frequency structure and high-frequency texture recovery by preventing poor guidance from noisy measurements alone."
+    },
+    {
+      "problem_id": "RP27",
+      "method_id": "M51",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.75,
+      "rationale": "The generative diffusion process in Diff-Unmix, combined with conditioning, may offer improved stability under heavy noise by leveraging learned data distributions and structural constraints."
+    },
+    {
+      "problem_id": "RP28",
+      "method_id": "M31",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "The residual noise correction mechanism in M31 aims to ensure zero-mean noise modeling, which helps prevent bias in the diffusion process when estimating noise from noisy data."
+    },
+    {
+      "problem_id": "RP29",
+      "method_id": "M6",
+      "relation": "directly_addresses",
+      "link_type": "inferred",
+      "confidence": 0.9,
+      "rationale": "The self-supervised conditioning function ensures alignment between the generated image and the input abundance map, directly resolving the misalignment issue in baseline unconditional generation."
+    },
+    {
+      "problem_id": "RP32",
+      "method_id": "M50",
+      "relation": "evaluates",
+      "link_type": "inferred",
+      "confidence": 0.8,
+      "rationale": "The evaluation protocol involving real-world noise types and mixed noise conditions assesses the generalization capability of diffusion-based unmixing models under diverse noise scenarios, directly evaluating this gap."
+    },
+    {
+      "problem_id": "RP34",
+      "method_id": "M51",
+      "relation": "directly_addresses",
+      "link_type": "inferred",
+      "confidence": 0.85,
+      "rationale": "Diff-Unmix integrates unmixing components within a diffusion framework, enabling structured recovery tasks such as spectral unmixing, thus directly addressing the limitation of existing diffusion models not integrating such components."
+    },
+    {
+      "problem_id": "RP35",
+      "method_id": "M51",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "The generative nature of Diff-Unmix allows for fine-grained control over detail preservation, potentially reducing over-smoothing effects observed in other methods like DDRM and DDS2M."
+    },
+    {
+      "problem_id": "RP38",
+      "method_id": "M5",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "The STU network introduces regularization through attention mechanisms, which can help constrain the solution space and reduce ill-posedness in spectral unmixing by promoting consistent and interpretable solutions."
+    },
+    {
+      "problem_id": "RP40",
+      "method_id": "M5",
+      "relation": "directly_addresses",
+      "link_type": "inferred",
+      "confidence": 0.8,
+      "rationale": "The STU network provides a more advanced model for HSI reconstruction compared to basic techniques like SVD, offering superior representation learning and unmixing performance."
+    },
+    {
+      "problem_id": "RP41",
+      "method_id": "M51",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "The generative nature of Diff-Unmix may lead to spurious detail generation, but the inclusion of conditioning functions and constraints helps mitigate over-enhancement and artifact formation."
+    },
+    {
+      "problem_id": "RP42",
+      "method_id": "M51",
+      "relation": "partially_addresses",
+      "link_type": "inferred",
+      "confidence": 0.7,
+      "rationale": "The conditional guidance in Diff-Unmix helps stabilize the generation process, reducing the likelihood of distorted results under certain noise conditions compared to unconditional models."
+    },
+    {
+      "problem_id": "RP43",
+      "method_id": "M51",
+      "relation": "directly_addresses",
+      "link_type": "inferred",
+      "confidence": 0.9,
+      "rationale": "Diff-Unmix combines spectral unmixing and generative restoration within a single diffusion framework, enabling simultaneous execution of both tasks and addressing the limitation of separate processing pipelines."
+    }
+  ],
+  "quality_report": {
+    "evidence_coverage": "high",
+    "cross_modal_usage": "low",
+    "main_limitations": [
+      "Automatic audit found no major structural issue, but semantic faithfulness still requires human evaluation."
+    ],
+    "recommended_human_checks": [
+      "Verify a sample of evidence_refs against 02_evidence_index.json and the original MinerU markdown/images.",
+      "Manually compare final items with the abstract, introduction, method, and experiment sections.",
+      "Manually verify inferred problem-method links before using them as evidence-supported findings."
+    ]
+  },
+  "audit_note": "L3 was performed deterministically in code to avoid invalid long JSON generation. The audit removes evidence-free items, normalizes final fields, estimates granularity, checks link validity, and produces a quality report.",
+  "relation_completion_note": "Added 37 inferred links. These links are semantic completions and should be distinguished from evidence_supported links in analysis."
+}

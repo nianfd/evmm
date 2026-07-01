@@ -1,0 +1,6 @@
+{
+  "condition": "ablation_large_chunk",
+  "paper_dir": "C:\\nfdproject\\nlpproject\\data\\output\\1",
+  "output_file": "C:\\nfdproject\\nlpproject\\data\\output\\1\\outputs\\comparison_experiments\\ablations\\ablation_large_chunk\\04_final_extraction.json",
+  "description": "Uses much larger chunks to weaken section-aware streaming."
+}

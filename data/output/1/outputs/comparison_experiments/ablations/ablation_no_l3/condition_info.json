@@ -1,0 +1,6 @@
+{
+  "condition": "ablation_no_l3",
+  "paper_dir": "C:\\nfdproject\\nlpproject\\data\\output\\1",
+  "output_file": "C:\\nfdproject\\nlpproject\\data\\output\\1\\outputs\\comparison_experiments\\ablations\\ablation_no_l3\\ablation_no_l3_result.json",
+  "description": "Removes the final quality-audit stage to test L3 refinement contribution."
+}

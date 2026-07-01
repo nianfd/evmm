@@ -1,0 +1,303 @@
+{
+  "S002_C01": {
+    "section": "Unmixing Diffusion for Self-Supervised Hyperspectral Image Denoising",
+    "text_preview": "# Unmixing Diffusion for Self-Supervised Hyperspectral Image Denoising Haijin Zeng <sup>1</sup> Jiezhang Cao <sup>2</sup>\\* Kai Zhang <sup>3</sup> Yongyong Chen <sup>4</sup> Hiep Luong <sup>1</sup> Wilfried Philips <sup>1</sup> <sup>1</sup> IMEC-UGent <sup>2</sup> ETH Zurich <sup>3</sup> Nanjing University <sup>4</sup> Harbin Institute of Technology, Shenzhen {Haijin.Zeng, Hiep.Luong, Wilfried.Philips}@UGent.be, jiezhang.cao@vision.ee.ethz.ch",
+    "images": [],
+    "research_problem_atom_ids": [],
+    "method_atom_ids": []
+  },
+  "S003_C01": {
+    "section": "Abstract",
+    "text_preview": "## Abstract Hyperspectral images (HSIs) have extensive applications in various fields such as medicine, agriculture, and industry. Nevertheless, acquiring high signal-to-noise ratio HSI poses a challenge due to narrow-band spectral filtering. Consequently, the importance of HSI denoising is substantial, especially for snapshot hyperspectral imaging technology. While most previous HSI denoising methods are supervised, creating supervised training datasets for the diverse scenes, hyperspectral cameras, and scan parameters is impractical. In this work, we present Diff-Unmix, a self-supervised denoising method for HSI using diffusion denoising generative models. Specifically, Diff-Unmix addresses the challenge of recovering noisedegraded HSI through a fusion of Spectral Unmixing and conditi...",
+    "images": [],
+    "research_problem_atom_ids": [
+      "RP-1",
+      "RP-2",
+      "RP-3"
+    ],
+    "method_atom_ids": [
+      "M-1",
+      "M-2",
+      "M-3",
+      "M-4"
+    ]
+  },
+  "S004_C01": {
+    "section": "1. Introduction",
+    "text_preview": "## 1. Introduction Hyperspectral images (HSIs) offer richer spectral information compared to RGB images, making them valuable for various applications such as face recognition [48, 49], vegetation detection [6], and medical diagnosis [54]. However, the substantial number of spectral bands in HSIs, combined with scanning designs [3] and narrow band spectral filtering, results in limited photon counts per band, making HSIs susceptible to noise [62]. This noise not only degrades visual quality but also hinders downstream tasks, which makes denoising a crucial pre-processing step. ![](images/fd64840fec6a67c57770fab2ac9ec0689144fb6e15132724002985b81f965e56.jpg) Hyperspectral Image Toy ![](images/09be9e0f71ce4d926ebe6e25ba684bcf308dd6a1ee79f4248a456eec0e7b76a4.jpg) Figure 1. Comparison (wavel...",
+    "images": [
+      "fd64840fec6a67c57770fab2ac9ec0689144fb6e15132724002985b81f965e56.jpg",
+      "09be9e0f71ce4d926ebe6e25ba684bcf308dd6a1ee79f4248a456eec0e7b76a4.jpg"
+    ],
+    "research_problem_atom_ids": [
+      "RP-1",
+      "RP-2",
+      "RP-3",
+      "RP-4",
+      "RP-5",
+      "RP-6",
+      "RP-7"
+    ],
+    "method_atom_ids": [
+      "M-1",
+      "M-2",
+      "M-3",
+      "M-4",
+      "M-5"
+    ]
+  },
+  "S005_C01": {
+    "section": "2. Related Work",
+    "text_preview": "## 2. Related Work HSI denoising is an essential pre-processing step with applications in computer vision [10, 18, 56] and remote sensing [43, 60]. The field has seen the development of two main categories of denoising methods: model-based and deep learning-based approaches. Traditional model-based methods [11, 34, 34, 59, 69] typically approach noise removal through iterative optimization, guided by handcrafted priors. These methods include adaptive spatial-spectral dictionary methods [17] and the hyper-Laplacian regularized unidirectional low-rank tensor recovery method introduced by Chang et al. [10]. Additionally, some approaches integrate spatial non-local similarity and global spectral lowrank properties [18] for denoising, while others use spatial regularizers [34, 68] and low-ra...",
+    "images": [],
+    "research_problem_atom_ids": [
+      "RP-1",
+      "RP-2",
+      "RP-3"
+    ],
+    "method_atom_ids": [
+      "M-1",
+      "M-2"
+    ]
+  },
+  "S006_C01": {
+    "section": "3. Methodology",
+    "text_preview": "## 3. Methodology Main Idea. Given a noisy HSI Y, the inverse problem for HSI denoising is to separate the clean image X , Gaussian noise N defined by: $$ \\mathcal {Y} = \\mathcal {X} + \\mathcal {N}.\\tag{1} $$ Given the inherently ill-posed nature of HSI reconstruction as an inverse problem, extant methodologies continue to grapple with several notable challenges in the simultaneous achievement of accurate detail reconstruction and effective noise reduction. The denoising diffusion model, endowed with its generative capability, stands out as a promising solution to this predicament. Nevertheless, (i) the dearth of HSI datasets relative to RGB images, along with the substantially higher dimensionality inherent in HSI data, presents a formidable hurdle when endeavoring to retrain a diffusi...",
+    "images": [
+      "078572a90169f47b4d9674832d0ea664fd758bb5d54a28516dfb7a4696941c50.jpg"
+    ],
+    "research_problem_atom_ids": [
+      "RP-1",
+      "RP-2",
+      "RP-3",
+      "RP-4"
+    ],
+    "method_atom_ids": [
+      "M-1",
+      "M-2",
+      "M-3",
+      "M-4",
+      "M-5"
+    ]
+  },
+  "S007_C01": {
+    "section": "3.1. Transformer Unmixing Network",
+    "text_preview": "## 3.1. Transformer Unmixing Network The spectral unmixing theory assumes that an image can be decomposed into abundance and spectral endmembers as: $$ \\mathcal {X} = \\mathcal {A} \\times_ {3} E,\\tag{2} $$ where X is the input HSI. A and E denote the abundance maps and spectral endmembers, respectively. It is essentially an ill-posed problem and many potential solutions exist. The abundance refers to the relative proportion of different pure materials, known as endmembers, present within a mixed pixel. These abundances signify the contribution of each endmember to the overall spectral signature observed in that pixel. For instance, in a landscape image, the abundance values would represent the percentages of materials like grass, soil, water, and rocks within a given pixel. On the other ...",
+    "images": [],
+    "research_problem_atom_ids": [
+      "RP-01",
+      "RP-02",
+      "RP-03"
+    ],
+    "method_atom_ids": [
+      "M-01",
+      "M-02",
+      "M-03",
+      "M-04"
+    ]
+  },
+  "S008_C01": {
+    "section": "3.1.1 Loss Functions",
+    "text_preview": "## 3.1.1 Loss Functions Utilizing the formulation presented in Equation (3), we formulate distinct loss functions: the reconstruction loss, abundance consistency loss, and spectral endmembers loss, which are integral components in the optimization process of the Transformer Unmixing Network. To address the need for abundance consistency under varying noise conditions, our training dataset comprises paired sets of noisy HSIs, denoted as $\\mathcal { I } _ { n }$ , and their corresponding noise-variant counterparts, denoted as $\\mathcal { T } _ { m }$ . The abundance maps derived from these datasets are denoted as $A _ { n }$ and $A _ { m }$ respectively. Additionally, the respective spectral endmembers are denoted as $E _ { n }$ and $E _ { m }$ ![](images/69f76c48f02fc658b16d917811f6d9296...",
+    "images": [
+      "69f76c48f02fc658b16d917811f6d9296328ffe13e82510fdc93c451bd306374.jpg"
+    ],
+    "research_problem_atom_ids": [
+      "RP-1",
+      "RP-2",
+      "RP-3"
+    ],
+    "method_atom_ids": [
+      "M-1",
+      "M-2",
+      "M-3",
+      "M-4",
+      "M-5"
+    ]
+  },
+  "S009_C01": {
+    "section": "3.1.2 Network Architecture",
+    "text_preview": "## 3.1.2 Network Architecture As shown in Fig. 3, Spectral Transformer Unmixing network (STU) consists of two branches, i.e., the Abundance Decomposition (AD) branch and the Spectral Endmember Decomposition (SED) branch. ![](images/9ba6df39236ecd3f58469599df7046bfeaccfb3739a58ddeb474b1897d0f57e6.jpg) Figure 4. Detailed network architecture of GSA. The attention is calculated in the direction of cross spectral mode to realize the efficient unmixing of a hyperspectral image. In the spectral endmember decomposition branch, multiple convolutional layers are employed to reduce computational complexity while ensuring effective decomposition, as discussed in [58]. In the abundance decomposition branch of the $\\mathbf { A D } ,$ a multi-stage spectral Transformer encoder and decoder are utilize...",
+    "images": [
+      "9ba6df39236ecd3f58469599df7046bfeaccfb3739a58ddeb474b1897d0f57e6.jpg",
+      "9a6ca00c5222931015890b09bf635aec6bdcf183a9f162a97fb2657e682875b3.jpg"
+    ],
+    "research_problem_atom_ids": [
+      "RP-01",
+      "RP-02"
+    ],
+    "method_atom_ids": [
+      "M-01",
+      "M-02",
+      "M-03",
+      "M-04",
+      "M-05",
+      "M-06"
+    ]
+  },
+  "S010_C01": {
+    "section": "3.2. Diffusion Generation Adjustment",
+    "text_preview": "## 3.2. Diffusion Generation Adjustment This section introduces a methodology for generating precise abundance approximations (A<sup>ˆ</sup>) using a pre-trained offthe-shelf diffusion model enhanced with a trainable conditioning function. To condition the diffusion sampling on noisy input $( \\mathcal { A } ^ { \\prime } )$ , we represent it as a sample from a datadriven intermediate state $( \\mathcal { A } _ { t } )$ in the Markov chain. We then initiate the sampling process directly from A<sup>′</sup> through the conditional probability $p ( \\boldsymbol { A } _ { t } | \\boldsymbol { A } ^ { \\prime } )$ , as shown in Fig. 2. This formulation raises two key questions: (i) What methodology maps $\\mathcal { A } ^ { \\prime }$ to an intermediate state within the Markov chain? and (ii) How to...",
+    "images": [
+      "907888eb502fa9a0e386bf5a6a8643bbc720962898c2f748a4dd0002c53286c4.jpg"
+    ],
+    "research_problem_atom_ids": [
+      "RP-1",
+      "RP-2",
+      "RP-3",
+      "RP-4"
+    ],
+    "method_atom_ids": [
+      "M-1",
+      "M-2",
+      "M-3",
+      "M-4",
+      "M-5",
+      "M-6"
+    ]
+  },
+  "S010_C02": {
+    "section": "3.2. Diffusion Generation Adjustment",
+    "text_preview": "dsymbol { A } _ { t }$ in the baseline unconditional generation process that closely approximates the provided input $\\mathcal { A } ^ { \\prime } .$ . Consequently, a more precise image can be sampled at state $A _ { 0 }$ through an iterative reverse process denoted as $p ( \\mathcal { A } _ { 0 } | \\mathcal { A } _ { t } )$ with condition $\\boldsymbol { A } _ { c }$ from (13). With the matched state t and trained $\\epsilon _ { \\theta } ( \\cdot , t )$ , reverse diffusion process [24] starting from $\\boldsymbol { A } _ { t }$ with noisy abundance $\\boldsymbol { A } _ { t } = \\boldsymbol { A } ^ { \\prime }$ , and the reverse process is updated as follows: $$ \\mathcal {A} _ {t - 1} = \\frac {1}{\\sqrt {\\alpha_ {t}}} \\left(\\mathcal {A} _ {t} - \\frac {1 - \\alpha_ {t}}{\\sqrt {1 - \\bar {\\alpha} _...",
+    "images": [
+      "907888eb502fa9a0e386bf5a6a8643bbc720962898c2f748a4dd0002c53286c4.jpg"
+    ],
+    "research_problem_atom_ids": [
+      "RP-01",
+      "RP-02",
+      "RP-03"
+    ],
+    "method_atom_ids": [
+      "M-01",
+      "M-02",
+      "M-03",
+      "M-04"
+    ]
+  },
+  "S011_C01": {
+    "section": "4. Experiment",
+    "text_preview": "## 4. Experiment",
+    "images": [],
+    "research_problem_atom_ids": [],
+    "method_atom_ids": []
+  },
+  "S012_C01": {
+    "section": "4.1. Implementation Details and Datasets",
+    "text_preview": "## 4.1. Implementation Details and Datasets Implementation Details. The proposed Diff-Unmix model undergoes two self-supervised training stages. Initially, the STU is trained, then we fix the pre-trained diffusion model [1] with unconditional mode and train the conditioning function associated with the diffusion generation adjustment. The transform set T includes shift, flip, rotation. The input image are cropped to patches of size $2 5 6 \\times 2 5 6$ . All experiments are conducted using PyTorch on two NVIDIA RTX 4060Ti GPUs running Ubuntu 22.04.2. Datasets. To assess generalization capabilities, we train the conditioning function and STU block on CAVE dataset in a self-supervised manner, then test Diff-Unmix on KAIST [14], CAVE, CAVE-Toy [38] datasets with simulated Gaussian noise: $...",
+    "images": [],
+    "research_problem_atom_ids": [
+      "RP-1",
+      "RP-2"
+    ],
+    "method_atom_ids": [
+      "M-1",
+      "M-2",
+      "M-3",
+      "M-4",
+      "M-5"
+    ]
+  },
+  "S013_C01": {
+    "section": "4.2. Synthetic Noise",
+    "text_preview": "## 4.2. Synthetic Noise In simulated noise case, we compare the proposed Diff-Unmix with 15 SOTA denoising methods within five categories: (1) optimization based NonLRMA [12], LRTDTV [63], LLRSSTV [21], TLRLSSTV [65], LLxRGTV [64], 3DTNN [70], 3DTNN FW [71], LRTD-CTV [63], E3DTV [39], FGSLR [13], (2) deep prior based DIP [45], (3) plug and play framework based LLRPnP [66], (4) self-supervised tensor network HLRTF [35], (5) diffusion based DDRM [27] and DDS2M [36]. The STU unmixing block and conditioning function are trained on CAVE dataset in a self-supervised manner. For the optimization based methods, the hyperparameters are set according to the original papers, and we fine-tune the rank slightly to get better PSNR. For DDRM, we adapt its denoising models with $\\sigma = 0 . 2 , 0 . 3 ...",
+    "images": [
+      "363d03a529c22185bd14f03b83c2a6d5f9efcd55c76def28f063d68969883a70.jpg",
+      "2cede57664c6f117884bcf1ce3f199460577dc21e6f49934b8342486e30462fd.jpg",
+      "9675adf6b3242c98b9e8177e9ac81301fd5e772a55af08cc6a7025d11bcacb65.jpg",
+      "e483ecc7c8364b1bec4969d19834808595dfb6ae6ca742c89e891bef52781f18.jpg"
+    ],
+    "research_problem_atom_ids": [
+      "RP-1",
+      "RP-2",
+      "RP-3"
+    ],
+    "method_atom_ids": [
+      "M-1",
+      "M-2",
+      "M-3",
+      "M-4",
+      "M-5"
+    ]
+  },
+  "S014_C01": {
+    "section": "4.3. Real-World Noise",
+    "text_preview": "## 4.3. Real-World Noise The urban HSI is affected by a range of noise sources including stripes, deadlines, atmospheric interference, water absorption, and other unidentified sources [23]. In Fig. 10, a comparison on the real Urban dataset is shown. It is evident that HLRTF and Diff-Unmix demonstrate superior denoising capabilities when compared to DDRM and DDS2M. Although DDRM and DDS2M perform well under simulated Gaussian noise, they tend to overly smooth out crucial details when confronted with real mixed noise. On the other hand, Diff-Unmix efficiently retains most of the details while effectively removing mixed noise by utilizing information from diverse spectral bands. Table 2. Quantitative results on CAVE and CAVE-Toy dataset, gray: deep prior, PnP and tensor network based mode...",
+    "images": [
+      "9122aadd951e7e6f298565f27bdce82d9960d239b10fdb81eb3728511ccc1ff8.jpg",
+      "6f1c759470030d670f3325afd280da842abba56e2b9edff95f61b5028f1a29aa.jpg",
+      "5bd8fd549e61437eb237083b81da46f1d388fdfd80beb4113c7fb4b0d91f5235.jpg",
+      "cd58ab5912c4e9e52e8ee8764ff8cff87c9b5c19a00401ba1455172f987064a4.jpg"
+    ],
+    "research_problem_atom_ids": [
+      "RP-1",
+      "RP-2",
+      "RP-3"
+    ],
+    "method_atom_ids": [
+      "M-1",
+      "M-2",
+      "M-3"
+    ]
+  },
+  "S015_C01": {
+    "section": "4.4. Ablation Study",
+    "text_preview": "## 4.4. Ablation Study Transformer Unmixing Network. To assess the efficacy of the STU network, we conduct a visual analysis of the decomposition process. It is crucial to note that spectral unmixing poses an inherently ill-posed problem, lacking an exact optimal solution. A pivotal consideration is the necessity for consistent endmember information across varying levels of noise. For comparative purposes, we also employ Singular Value Decomposition technique for unmixing, the results are shown in supplementary material. Markov Chain State Matching. The impact of State Matching is illustrated in Fig. 6, demonstrating that aligning the noisy input with an intermediate state in the diffusion Markov chain accelerates the inference process, leading to a faster generation of the desired HSI ...",
+    "images": [],
+    "research_problem_atom_ids": [
+      "RP-1",
+      "RP-2",
+      "RP-3"
+    ],
+    "method_atom_ids": [
+      "M-1",
+      "M-2",
+      "M-3",
+      "M-4"
+    ]
+  },
+  "S016_C01": {
+    "section": "4.5. Limitations",
+    "text_preview": "## 4.5. Limitations Similar to many applications of DDPM, Diff-Unmix has the potential to generate spurious details (over-enhancement) due to its generative nature, as illustrated in Fig. 11. In contrast, DDS2M yields a distorted result in this scenario.",
+    "images": [],
+    "research_problem_atom_ids": [
+      "RP-1",
+      "RP-2"
+    ],
+    "method_atom_ids": []
+  },
+  "S017_C01": {
+    "section": "5. Conclusion",
+    "text_preview": "## 5. Conclusion In this paper, we rethink the HSI denoising task and propose a generative Diff-Unmix denoising model. Diff-Unmix formulates the HSI denoising task as a paradigm of spectral unmixing and image generation. It can adaptively decompose images into abundance map and spectral endmembers and solve degradation by generative denoising diffusion models. The experimental results show that Diff-Unmix has excellent performance and makes subtle-detail completion and inference details restoration of noise reduction into reality. Besides, the proposed method demonstrates superior generalization capacity for unseen real and mixed noise compared to state-of-the-art methods.",
+    "images": [],
+    "research_problem_atom_ids": [
+      "RP-1",
+      "RP-2"
+    ],
+    "method_atom_ids": [
+      "M-1",
+      "M-2",
+      "M-3"
+    ]
+  },
+  "S018_C01": {
+    "section": "6. Acknowledgments",
+    "text_preview": "## 6. Acknowledgments This work was supported in part by the Flemish Government (AI Research Program), UGent-Special Research Fund (BOF).",
+    "images": [],
+    "research_problem_atom_ids": [],
+    "method_atom_ids": []
+  },
+  "S019_C01": {
+    "section": "References",
+    "text_preview": "## References [1] Wele Gedara Chaminda Bandara, Nithin Gopalakrishnan Nair, and Vishal M Patel. Ddpm-cd: Remote sensing change detection using denoising diffusion probabilistic models. arXiv preprint arXiv:2206.11892, 2022. 6 [2] Wele Gedara Chaminda Bandara and Vishal M Patel. Hypertransformer: A textural and spectral feature fusion transformer for pansharpening. In CVPR, pages 1767–1777, 2022. 2 [3] Robert W Basedow, Dwayne C Carmer, and Mark E Anderson. Hydice system: Implementation and performance. In Imaging Spectrometry, volume 2480, pages 258–267. SPIE, 1995. 1 [4] Joshua Batson and Loic Royer. Noise2self: Blind denoising by self-supervision. In ICML, pages 524–533. PMLR, 2019. 5 [5] Theo Bodrito, Alexandre Zouaoui, Jocelyn Chanussot, and´ Julien Mairal. A trainable spectral-spat...",
+    "images": [],
+    "research_problem_atom_ids": [],
+    "method_atom_ids": []
+  },
+  "S019_C02": {
+    "section": "References",
+    "text_preview": "ing using a 3-d attention denoising network. IEEE TGRS, 2021. 2 [44] Oleksii Sidorov and Jon Yngve Hardeberg. Deep hyperspectral prior: Single-image denoising, inpainting, superresolution. In CVPR, pages 0–0, 2019. 1 [45] Oleksii Sidorov and Jon Yngve Hardeberg. Deep hyperspectral prior: Single-image denoising, inpainting, superresolution. In ICCV, pages 0–0, 2019. 6, 7, 8 [46] Yang Song, Jascha Sohl-Dickstein, Diederik P Kingma, Abhishek Kumar, Stefano Ermon, and Ben Poole. Score-based generative modeling through stochastic differential equations. In ICLR, 2021. 6 [47] Xunyang Su, Jinjiang Li, and Zhen Hua. Transformer-based regression network for pansharpening remote sensing images. IEEE TGRS, 60:1–23, 2022. 2 [48] Muhammad Uzair, Arif Mahmood, and Ajmal Mian. Hyperspectral face recog...",
+    "images": [],
+    "research_problem_atom_ids": [],
+    "method_atom_ids": []
+  }
+}

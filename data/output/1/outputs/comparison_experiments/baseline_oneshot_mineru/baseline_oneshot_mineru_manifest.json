@@ -1,0 +1,17 @@
+{
+  "paper_dir": "C:\\nfdproject\\nlpproject\\data\\output\\1",
+  "markdown_path": "C:\\nfdproject\\nlpproject\\data\\output\\1\\full.md",
+  "image_dir": "C:\\nfdproject\\nlpproject\\data\\output\\1\\images",
+  "max_text_chars": 60000,
+  "selected_images": [
+    "C:\\nfdproject\\nlpproject\\data\\output\\1\\images\\01f8d2f4986141655105a19853d9471a056e755ca707c4c68371f6610db077c2.jpg",
+    "C:\\nfdproject\\nlpproject\\data\\output\\1\\images\\21f407c2eb20c003862baa54f1f73b57ed302647ccd4d9a2fec994893a8a93fa.jpg",
+    "C:\\nfdproject\\nlpproject\\data\\output\\1\\images\\30e6387b4faf8744cc8057397c4dc726ad1fd48b824639a446c099dd9832c778.jpg",
+    "C:\\nfdproject\\nlpproject\\data\\output\\1\\images\\5acd59d58bfee2a5b16f3f762c4b6c86aa53db0f934a4802962d9e9b020a22ed.jpg",
+    "C:\\nfdproject\\nlpproject\\data\\output\\1\\images\\7065e4ad335e3f29f57c799f2897ca4bfa8ffe8e8532d8643e5c0a6348f5ddee.jpg",
+    "C:\\nfdproject\\nlpproject\\data\\output\\1\\images\\8776f297107b104294716211e36820710a4ec0af20beb9a7d1ad84f20fc75540.jpg",
+    "C:\\nfdproject\\nlpproject\\data\\output\\1\\images\\9122aadd951e7e6f298565f27bdce82d9960d239b10fdb81eb3728511ccc1ff8.jpg",
+    "C:\\nfdproject\\nlpproject\\data\\output\\1\\images\\9ba6df39236ecd3f58469599df7046bfeaccfb3739a58ddeb474b1897d0f57e6.jpg"
+  ],
+  "output": "C:\\nfdproject\\nlpproject\\data\\output\\1\\outputs\\comparison_experiments\\baseline_oneshot_mineru\\baseline_oneshot_mineru.json"
+}

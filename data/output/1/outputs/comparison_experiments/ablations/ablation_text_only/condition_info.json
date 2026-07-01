@@ -1,0 +1,6 @@
+{
+  "condition": "ablation_text_only",
+  "paper_dir": "C:\\nfdproject\\nlpproject\\data\\output\\1",
+  "output_file": "C:\\nfdproject\\nlpproject\\data\\output\\1\\outputs\\comparison_experiments\\ablations\\ablation_text_only\\04_final_extraction.json",
+  "description": "Removes image inputs to test cross-modal evidence contribution."
+}
