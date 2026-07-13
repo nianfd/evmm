@@ -14,7 +14,7 @@ The script reads all the papers in the data/output directory and processes them 
 This process generates three files (01_l1_chunk_results.json, 02_evidence_index.json, and 04_final_extraction.json), which serve as the data for our Problem-Method Graph.  
 
 
-3. Problem-Method Graph Visualization  
+3.Problem-Method Graph Visualization  
 
 
 To open the Problem-Method Graph visualization interface, double-click the `journal_figure.html` file in the result_visualizer directory. Then, click "Final JSON" to `select 04_final_extraction.json`, click "L1 JSON" to select `01_l1_chunk_results.json`, click "Evidence Index" to select `02_evidence_index.json`, and finally, click "Images Folder" to select the image folder parsed by MinerU.  
